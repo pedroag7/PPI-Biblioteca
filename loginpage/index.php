@@ -9,7 +9,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+    <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
     <title>Biblioteca IFFAR</title>
+    <style>
+        <?php include 'style.css'; ?>
+    </style>
     <script>
         tailwind.config = {
             theme: {
@@ -25,11 +29,15 @@
 
 <body class="bg-green-600 font-roboto">
     <div class="">
-        <div class="flex h-full items-center justify-left pb-60 pt-32 sm:px-40 lg:px-48 bg-white max-w-3xl">
+    <div>
+        <h2 class=" flex-inline text-right pt-40 text-4xl font-bold tracking-tight text-white sm:pr-48 lg:pr-56 ">Sistema De Biblioteca Institucional</h2>
+        <iconify-icon icon="file-icons:owl" style="color: #fefefe;"></iconify-icon>
+     </div>
+        <div class="flex items-center justify-left pb-72 pt-32 sm:pl-48 lg:pl-56  max-w-screen-lg " id="formdiv">
             <div class=" w-80  max-w-md space-y-8">
                 <div>
-
-                    <h2 class="mt-6 text-center text-4xl font-bold  tracking-tight text-black">Seja Bem Vindo</h2>
+                    
+                    <h2 class="mt-6 text-center text-5xl font-bold tracking-tight text-black">Seja Bem Vindo</h2>
                     <p class="mt-2 text-center text-sm text-gray-600">
                     </p>
                 </div>
