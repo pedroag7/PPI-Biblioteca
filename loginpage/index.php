@@ -31,7 +31,7 @@
 
     <div class="pt-32 sm:pl-32 lg:pl-48">
         <div class=" md:flex-inline ">
-            <img src="img2.png" alt="Logo IFF" class=" absolute block right-64 space-y-16 h-48 w-36 ">
+            <img src="img2.png" alt="Logo IFF" class=" absolute block sm:flex-inline right-64 space-y-16 h-48 w-36 ">
 
         </div>
 
@@ -50,7 +50,9 @@
                 <div class="-space-y-px rounded-md shadow-sm">
                     <div>
                         <label for="usuario" class="sr-only">Usuario</label>
-                        <input id="usuario" name="usuario" type="text" required class="relative block w-80 appearance-none  rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm drop-shadow" placeholder="Login">
+                        <input id="usuario" name="usuario" type="text" required class="relative block w-80 appearance-none
+                          rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green-500 
+                          focus:outline-none focus:ring-green-500 sm:text-sm drop-shadow" placeholder="Login">
                     </div>
                     <br>
                     <div>
