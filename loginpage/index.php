@@ -29,26 +29,28 @@
 
 <body class=" font-roboto">
 
-    <div class="  pb-72 pt-24 sm:pl-40 lg:pl-64">
-        <div class=" ">
-            <h2 class=" text-4xl  text-white text-right font-bold sm:pr-32 lg:pr-40 tracking-tight">Sistema de Biblioteca Institucional</h2> 
-            <img src="img2.png" alt="Logo IFF" class=" absolute right-96 space-y-8 h-50 w-24" >
-                
+    <div class="pt-32 sm:pl-32 lg:pl-48">
+        <div class=" md:flex-inline ">
+            <img src="img2.png" alt="Logo IFF" class=" absolute block right-64 space-y-16 h-48 w-36 ">
+
         </div>
 
         <div class=" w-80 space-y-8">
             <div>
-            
+
                 <h2 class=" text-center text-5xl font-bold tracking-tight text-black">Seja Bem Vindo</h2>
-                
+                <p class="mt-2 text-center text-sm text-gray-600">
+                    Biblioteca Institucional
+                </p>
+
             </div>
 
-            <form class="mt-8 space-y-6 border-1" action="#" method="POST">
+            <form class="mt-4 space-y-6 border-1" action="#" method="POST">
                 <input type="hidden" name="remember" value="true">
                 <div class="-space-y-px rounded-md shadow-sm">
                     <div>
-                        <label for="email-address" class="sr-only">Email address</label>
-                        <input id="email-address" name="email" type="email" autocomplete="email" required class="relative block w-80 appearance-none  rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm drop-shadow" placeholder="Login">
+                        <label for="usuario" class="sr-only">Usuario</label>
+                        <input id="usuario" name="usuario" type="text" required class="relative block w-80 appearance-none  rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm drop-shadow" placeholder="Login">
                     </div>
                     <br>
                     <div>
@@ -83,7 +85,7 @@
         </div>
     </div>
     </div>
-        
+
 
 </body>
 
