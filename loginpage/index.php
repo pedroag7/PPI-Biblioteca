@@ -10,7 +10,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
     <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+   
+
     <title>Biblioteca IFFAR</title>
+    
     <style>
         <?php include 'style.css'; ?>
     </style>
