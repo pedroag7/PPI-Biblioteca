@@ -8,6 +8,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="swiper.js"></script>
   <title>Pagina Inicial</title>
+  <link rel="shortcut icon" href="logo.png" type="image/x-icon" >
   <style>
     <?php include 'css/swiper.css'; ?>
   </style>
@@ -23,7 +24,7 @@
     <header class="w-full bg-green-500 p-3 drop-shadow-sm	text-white ">
       <div class="max-w-screen-xl mx-auto flex justify-between drop-shadow">
         <h1 class=" w-8 ">
-          <a href=""><img src="logo.png" class="drop-shadow"></a>
+          <a href=""><img src="img/logo.png" class="drop-shadow"></a>
         </h1>
         <nav>
           <ul class=" flex gap-x-1  font-roboto">
@@ -32,13 +33,13 @@
               <label for="buscar" class="sr-only">Pesquisar</label>
               <div class="relative w-full">
                 <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                  <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <svg aria-hidden="true" class="w-5 h-5 pt-0.5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
                   </svg>
                 </div>
-                <input type="text" id="buscar" class="bg-gray-50 border border-slate-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 block w-full pl-10 p-2.5 placeholder:italic placeholder:text-slate-400 shadow-sm " placeholder="Pesquisar livro" required="">
+                <input type="text" id="buscar" class="bg-gray-50 mt-0.5 h-8 border border-slate-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 block w-full pl-10 p-2.5 placeholder:italic placeholder:text-slate-400 shadow-sm " placeholder="Pesquisar livro" required="">
               </div>
-              <button type="submit" class="p-2.5 ml-2 text-sm font-medium text-white bg-white rounded-lg border border-green-700 hover:bg-sky-500  focus:ring-1 focus:outline-none focus:ring-sky-500 drop-shadow ">
+              <button type="submit" class="p-1.5 ml-2 mt-0.5 text-sm font-medium text-white bg-gray-50 rounded-lg border border-slate-300 hover:bg-sky-500  focus:ring-1 focus:outline-none focus:ring-sky-500 drop-shadow ">
                 <svg class="w-5 h-5 text-gray-900 " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                 </svg>
@@ -60,13 +61,13 @@
       </div>
     </header>
 
-    <div class="p-3 pt-10 max-w-screen-xl mx-auto text-gray-500">
-      <p>Ficçao:</p>
+    <div class="p-3  pt-10 max-w-screen-xl mx-auto text-gray-500">
+      <p class=" flex  text-left pl-16 text-2xl italic font-bold ">Ficçao cientifica:</p>
       <br>
       <!-- Swiper -->
       <div class="swiper mySwiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">Slide 1</div>
+          <div class="swiper-slide"><img src="dunabook.jpg" width="100" height="100" class="rounded-md"> </div>
           <div class="swiper-slide">Slide 2</div>
           <div class="swiper-slide">Slide 3</div>
           <div class="swiper-slide">Slide 4</div>
@@ -82,7 +83,7 @@
 
         <script>
           var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 3,
+            slidesPerView: 6,
             spaceBetween: 30,
             slidesPerGroup: 3,
             loop: true,
