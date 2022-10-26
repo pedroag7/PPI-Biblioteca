@@ -20,7 +20,7 @@
 
     <header class="w-full bg-green-500 p-3 drop-shadow-sm text-white ">
       <div class="max-w-screen-xl mx-auto flex justify-between drop-shadow">
-        <h1 class=" w-8 ">
+        <h1 class=" w-7 ">
           <a href=""> <img src="logo.png" class="drop-shadow"></a>
         </h1>
         <nav>
@@ -34,9 +34,9 @@
                     <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
                   </svg>
                 </div>
-                <input type="search" id="buscar" class="bg-gray-50 mt-0.5 h-8 border border-slate-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 block w-full pl-10 p-2.5 placeholder:italic placeholder:text-slate-400 shadow-sm " placeholder="Pesquisar livro" required="">
+                <input type="search" id="buscar" class="bg-gray-50 mt-0.5 h-8 border border-slate-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 block w-full pl-10 p-2.5 placeholder:italic placeholder:text-slate-400 shadow-sm ease-in duration-150 focus:scale-105 " placeholder="Pesquisar livro" required="">
               </div>
-              <button type="submit" class="p-1.5 ml-2 mt-0.5 text-sm font-medium text-white bg-gray-50 rounded-lg border border-slate-300 hover:bg-sky-500  focus:ring-1 focus:outline-none focus:ring-sky-500 drop-shadow ">
+              <button type="submit" class="p-1.5 ml-2 mt-0.5 text-sm font-medium text-white bg-gray-50 rounded-lg border border-slate-300 ease-in duration-100 hover:scale-110  focus:ring-1 focus:outline-none focus:ring-sky-500 drop-shadow ">
                 <svg class="w-5 h-5 text-gray-900 " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                 </svg>
@@ -74,32 +74,37 @@
 
     <div class="p-3  pt-4 max-w-screen-xl mx-auto text-gray-500 ">
 
-      <h1 class="text-2xl pb-2 text-center "> Cadastro de usuarios </h1>
+      <h1 class="text-2xl pb-2 text-center italic "> Cadastro de usuarios </h1>
 
       <form class="  border pl-4 pb-4 text-black border-1 rounded-lg shadow-sm w-9/12 items-center m-auto pt-2.5 ">
         <div class="grid justify-center gap-6 mb-6 md:grid-cols-2 w-9/12 m-auto">
           <div>
-            <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 ">Nome</label>
-            <input type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow " placeholder="George" required="">
+            <label for="nome" class="block mb-2 text-sm font-medium text-gray-900 ">Nome</label>
+            <input type="text" id="nome" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow " placeholder="George" required="">
           </div>
           <div>
-            <label for="last_name" class="block mb-2 text-sm font-medium  ">Sobrenome</label>
-            <input type="text" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow " placeholder="Gonçalves" required="">
+            <label for="sobrenome" class="block mb-2 text-sm font-medium  ">Sobrenome</label>
+            <input type="text" id="sobrenome" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow " placeholder="Gonçalves" required="">
           </div>
           <div>
-            <label for="company" class="block mb-2 text-sm font-medium text-gray-900 ">Curso</label>
-            <input type="text" id="company" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow  " placeholder="T34" required="">
-          </div>
-          <div>
-            <label for="matricula" class=" block mb-2 text-sm font-medium text-gray-900">Matricula/SAP</label>
-            <input type="number" id="matricula" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow  " placeholder="2022704477"  required="">
-          </div>
-          <div>
-            <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 ">Categoria de usuario</label>
-            <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow ">
+            <label for="curso" class="block mb-2 text-sm font-medium text-gray-900 ">Curso</label>
+            <select id="curso" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow ease-in duration-150 ">
               <option selected>Escolha uma categoria</option>
-              <option value="US">Professor</option>
-              <option value="CA">Aluno</option>
+              <option value="TI">Informatica</option>
+              <option value="ADM">Administraçao</option>
+              <option value="AGRO">Agropecuaria</option>
+            </select>
+          </div>
+          <div>
+            <label for="matricula" class=" block mb-2 text-sm font-medium text-gray-900">Matricula/SIAP</label>
+            <input type="number" id="matricula" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow  " placeholder="2022704477" required="">
+          </div>
+          <div>
+            <label for="catU" class="block mb-2 text-sm font-medium text-gray-900 ">Categoria de usuario</label>
+            <select id="catUser" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow ">
+              <option selected>Escolha uma categoria</option>
+              <option value="SV">Servidor</option>
+              <option value="AL">Aluno</option>
             </select>
           </div>
           <div>
@@ -120,12 +125,7 @@
           <input type="password" id="confirm_password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow" placeholder="•••••••••" required="">
         </div>
         <div class="flex items-start mb-6 w-9/12 m-auto">
-          <div class="flex items-center h-5  ">
-            <input id="remember" type="checkbox" value="" class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-green-300 drop-shadow " required="">
-          </div>
-          <label for="remember" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-400"><a href="#" class="text-blue-600 hover:underline "></a>.</label>
-        </div>
-        <button type="submit" class="text-white bg-green-500 hover:bg-green-800 focus:ring-2 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center shadow-sm shadow-green-400/50 justify-center ">Cadastrar</button>
+        <button type="submit" class="text-white bg-green-500 justify-center hover:bg-green-800 focus:ring-2 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center shadow-sm shadow-green-400/50 justify-center ">Cadastrar</button>
       </form>
 
 
