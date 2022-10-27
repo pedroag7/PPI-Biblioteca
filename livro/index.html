@@ -8,22 +8,36 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
     <script src="swiper.js"></script>
-    <title>Pagina Inicial</title>
+    <title>Duna</title>
     <link rel="shortcut icon" href="logo.png" type="image/x-icon">
-    <style>
-        <?php include 'css/swiper.css'; ?>
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'roboto': ['"Roboto"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
 </head>
 
-<body>
+<body class="font-roboto">
     <div class="w-full min-h-screen bg-white ">
 
         <header class="w-full bg-green-500 p-3 drop-shadow shadow-sm text-white ">
             <div class="max-w-screen-xl mx-auto flex justify-between drop-shadow">
                 <h1 class=" w-7 ">
-                    <a href=""><img src="../img/logo.png" class="drop-shadow"></a>
+                    <a href=""> <img src="../img/logo.png" class="drop-shadow"></a>
                 </h1>
                 <nav>
                     <ul class=" flex gap-x-1  font-roboto">
@@ -86,7 +100,11 @@
                             do universo para garantir o futuro de seu povo. </p>
                         <br>
                         
-                        <p class="italic ">Disponibilidade: <b class="text-black">2 Unidades</b></p>
+                        <p class="italic"> Disponibilidade: <b>2 Unidades</b></p>
+                        <p class="italic"> Autor: <strong>Frank Herbert</strong></p>
+                        <p class="italic"> Numero de paginas: <strong>680 Paginas</strong> </p>
+                        <p class="italic"> Editora: <strong>Aleph</strong> </p>
+                        <p class="italic"> Tradutora: <strong>Maria do Carmo Zanini</strong> </p>
                         
                     </div>
                 </div>
@@ -94,7 +112,7 @@
 
                 <div class=" mt-4 px-48 mx-auto">
                 <form>
-                    <div class="mb-4 w-full bg-gray-50 rounded-lg border border-gray-200 ">
+                    <div class="mb-4 w-full bg-gray-50 rounded-lg border border-gray-200 drop-shadow ">
                         <div class="py-2 px-4 bg-white rounded-t-lg ">
                             <label for="comment" class="sr-only">Comente Aqui</label>
                             <textarea id="comment" rows="4" class="px-0 w-full text-sm text-gray-900 bg-white border-0 " placeholder="Deixe seu comentario aqui!" required=""></textarea>
