@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
@@ -20,11 +20,13 @@
 <body>
   <div class="w-full min-h-screen bg-white ">
 
+    <!-- header -->
     <header class="w-full bg-green-500 p-3 drop-shadow shadow-sm text-white ">
       <div class="max-w-screen-xl mx-auto flex justify-between drop-shadow">
         <h1 class=" w-7 ">
           <a href=""><img src="img/logo.png" class="drop-shadow"></a>
         </h1>
+
         <nav>
           <ul class=" flex gap-x-1  font-roboto">
             <form class="flex items-center" method="GET" action="">
@@ -73,10 +75,13 @@
       </div>
     </header>
 
+    <!--Main-->
     <div class="p-3  pt-10 max-w-screen-xl mx-auto text-gray-500">
       <p class=" flex  text-left pl-24 text-2xl italic font-bold ">Ficçao cientifica:</p>
       <br>
+
       <!-- Swiper -->
+
       <div class="swiper mySwiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide"><a href="./livro/index.html" class="rounded-md"><img src="dunabook.jpg" width="100" height="100" class="rounded-md"></a></div>
@@ -115,4 +120,5 @@
   </div>
   <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
 </body>
+
 </html>
