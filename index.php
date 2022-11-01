@@ -21,7 +21,7 @@
   <div class="w-full min-h-screen bg-white ">
 
     <!-- header -->
-    <header class="w-full bg-green-500 p-3 drop-shadow shadow-sm text-white ">
+    <header class="w-full bg-green-600 p-3 drop-shadow shadow-sm text-white ">
       <div class="max-w-screen-xl mx-auto flex justify-between drop-shadow">
         <h1 class=" w-7 ">
           <a href=""><img src="img/logo.png" class="drop-shadow"></a>
@@ -84,7 +84,7 @@
 
       <div class="swiper mySwiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide"><a href="./livro/index.html" class="rounded-md"><img src="dunabook.jpg" width="100" height="100" class="rounded-md"></a></div>
+          <div class="swiper-slide"><a href="./livro/index.html" class="rounded-md"><img src="dunabook.jpg" width="100" height="100"></a></div>
           <div class="swiper-slide">Slide 2</div>
           <div class="swiper-slide">Slide 3</div>
           <div class="swiper-slide">Slide 4</div>
