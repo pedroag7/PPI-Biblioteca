@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="swiper.js"></script>
-    <title>Cadastro de usuario</title>
+    <title>Cadastro de Acervo</title>
     <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
@@ -27,16 +27,16 @@
         }
     </script>
 
+
 </head>
 
-<body>
-    <div class="w-full min-h-screen bg-white font-roboto ">
-
-        <!---Header-->
+<body class="font-roboto">
+    <div class="w-full min-h-screen bg-white ">
+        <!-- Header -->
         <header class="w-full bg-green-600 p-3 drop-shadow-sm text-white ">
-            <div class="max-w-screen-xl mx-auto w-full flex justify-between drop-shadow gap-x-2">
+            <div class="max-w-screen-xl w-full x-auto flex justify-between gap-x-2 drop-shadow">
                 <h1 class=" w-7 ">
-                    <a href=""> <img src="./img/logo.png" class="drop-shadow"></a>
+                    <a href=""> <img src="/img/logo.png" class="drop-shadow"></a>
                 </h1>
                 <nav>
                     <ul class=" flex gap-x-1  font-roboto">
@@ -66,9 +66,9 @@
                                 </svg>
                                 <span class="sr-only">Search</span>
                             </button>
+
                         </form>
                         <div class="flex">
-
                             <li class=""><a href="/ppi-biblioteca/index.php"> <svg xmlns="http://www.w3.org/2000/svg"
                                         width="50" height="32" fill="currentColor" class="bi bi-house"
                                         viewBox="0 0 16 16">
@@ -88,6 +88,7 @@
                                 </svg>
                             </button>
                             <!-- Dropdown menu -->
+
                             <div id="dropdown"
                                 class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow "
                                 data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"
@@ -107,61 +108,45 @@
                 </nav>
             </div>
         </header>
+
         <!-- Main -->
-
         <div class="p-3  pt-4 max-w-screen-xl mx-auto text-gray-500 ">
-            <h1 class="text-2xl pb-2 text-center italic ">Painel de controle</h1>
 
-            <div class=" grid justify-center gap-6 mt-2 mb-6 md:grid-cols-4 w-9/12 mx-auto ">
+            <h1 class="text-2xl pb-2 text-center italic "> Cadastro de Acervo </h1>
 
-                <div>
-                    <label for="cadLivro" class="sr-only">Cadastro de livro</label>
-                    <a href="./cadastrarLivro/index.php"><button
-                            class="uppercase bg-green-600 text-white ring  rounded-md  p-9 transform ease-in-out duration-200 hover:scale-105 shadow-lg shadow-green-400/50 "
-                            id="cadLivro">Cadastro de livros
-                            <svg xmlns="http://www.w3.org/2000/svg" class="m-auto" width="4rem" height="4rem"
-                                preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                                <path fill="#fefefe"
-                                    d="M19 2.01H6c-1.206 0-3 .799-3 3v14c0 2.201 1.794 3 3 3h15v-2H6.012C5.55 19.998 5 19.815 5 19.01c0-.101.009-.191.024-.273c.112-.575.583-.717.987-.727H20c.018 0 .031-.009.049-.01H21V4.01c0-1.103-.897-2-2-2zm0 14H5v-11c0-.806.55-.988 1-1h7v7l2-1l2 1v-7h2v12z" />
-                            </svg></button></a>
-                </div>
-
-                <div>
-                    <label for="cadUsers" class="sr-only">Cadastro de Usuarios</label>
-                    <a href="./cadastrousuario/index.php"><button
-                            class="uppercase bg-green-600 text-white  rounded-md ring p-9 transform ease-in-out duration-200 hover:scale-105 shadow-lg shadow-green-400/50 "
-                            id="cadUsers">Cadastro de Usuarios
-                            <svg xmlns="http://www.w3.org/2000/svg" class="m-auto" width="4rem" height="4rem"
-                                preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32">
-                                <path fill="#fefefe"
-                                    d="M16 8a5 5 0 1 0 5 5a5 5 0 0 0-5-5Zm0 8a3 3 0 1 1 3-3a3.003 3.003 0 0 1-3 3Z" />
-                                <path fill="#fefefe"
-                                    d="M16 2a14 14 0 1 0 14 14A14.016 14.016 0 0 0 16 2Zm-6 24.377V25a3.003 3.003 0 0 1 3-3h6a3.003 3.003 0 0 1 3 3v1.377a11.899 11.899 0 0 1-12 0Zm13.992-1.451A5.002 5.002 0 0 0 19 20h-6a5.002 5.002 0 0 0-4.992 4.926a12 12 0 1 1 15.985 0Z" />
-                            </svg>
-                        </button></a>
-                </div>
-
-                <div>
-                    <label for="cadAcervo" class="sr-only">Cadastro de Acervo</label>
-                    <a href="createcollection.html"><button
-                            class="uppercase bg-green-600 text-white rounded-md ring p-9 transform ease-in-out duration-200 hover:scale-105 shadow-lg shadow-green-400/50">
-                            Cadastro De Acervo <svg xmlns="http://www.w3.org/2000/svg" width="4rem" height="4rem" class="m-auto"
-                                preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
-                                <path fill="#fefefe"
-                                    d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13z" />
-                                </svg> </button></a>
-                </div>
-
-            </div>
+            <form action="" method="POST" class="pl-4 pb-4 text-black border-1 rounded-lg shadow-sm w-9/12 items-center m-auto pt-2.5 ">
+                <div class="grid justify-center gap-6 mb-6 md:grid-cols-2 w-9/12 m-auto">
+                    <div>
+                        <label for="tipoacervo" class="block mb-2 text-sm font-medium text-gray-900 ">Tipo de acervo
+                        </label>
+                        <input type="text" id="tipoacervo"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow "
+                            placeholder="Ex.: Livro, DVD, Revista, … " required="">
+                    </div>
+                    <div>
+                        <label for="codAcervo" class="block mb-2 text-sm font-medium  ">Codigo do acervo</label>
+                        <input type="text" id="codAcervo"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow "
+                            placeholder="23232323" required="">
+                    </div>
 
 
+                    <div>
+                        <label for="classCdu" class="block mb-2 text-sm font-medium text-gray-900 ">Classificaçao
+                            CDU</label>
+                        <textarea id="classCdu" rows="4"
+                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 drop-shadow "
+                            placeholder="Tecnologia, cor azul"></textarea>
+                    </div>
 
+                    
+                        <button type="submit"
+                            class="text-white bg-green-500 text-lg justify-center hover:bg-green-800 focus:ring-2 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-16 py-8 text-center shadow-sm shadow-green-400/50 justify-center duration-200 ease-in-out ">Cadastrar</button>
+                    
+
+            </form>
         </div>
-
-
-
-    </div>
-    <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+        <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
 </body>
 
 </html>

@@ -1,16 +1,6 @@
-body {
-    background: #eee;
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    color: #000;
-    margin: 0;
-    padding: 0;
-  }
-
-
 .swiper {
-  width: 55rem;
-  height: 10rem;
+  width: 75%;
+  height: 75%;
 }
 
 .swiper-slide {
@@ -31,6 +21,7 @@ body {
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
+  
 }
 
 .swiper-slide img {

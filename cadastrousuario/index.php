@@ -11,15 +11,30 @@
   <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
   <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'roboto': ['"Roboto"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
 
 
 </head>
 
-<body>
+<body class="font-roboto">
   <div class="w-full min-h-screen bg-white ">
-  <!-- Header -->
+    <!-- Header -->
     <header class="w-full bg-green-600 p-3 drop-shadow-sm text-white ">
-      <div class="max-w-screen-xl mx-auto flex justify-between drop-shadow">
+      <div class="max-w-screen-xl mx-auto w-full  flex justify-between drop-shadow gap-x-2">
         <h1 class=" w-7 ">
           <a href=""> <img src="logo.png" class="drop-shadow"></a>
         </h1>
