@@ -17,7 +17,7 @@ var swiper = new Swiper(".mySwiper", {
     spaceBetween: 30,
     slidesPerGroup: slidesPerView,
     loop: true,
-    loopFillGroupWithBlank: false,
+    loopFillGroupWithBlank: true,
     pagination: {
         el: ".swiper-pagination",
         clickable: true,

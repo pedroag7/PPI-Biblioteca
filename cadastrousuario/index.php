@@ -1,6 +1,10 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -95,20 +99,42 @@
 
       <h1 class="text-2xl pb-2 text-center italic "> Cadastro de usuarios </h1>
 
-      <form class="  border pl-4 pb-4 text-black border-1 rounded-lg shadow-sm w-9/12 items-center m-auto pt-2.5 ">
+      <?php
+      if($_SESSION['status_registration']):
+      ?>
+      <div>
+        <h1 class="text-green-500 mx-auto text-3xl text-center bold uppercase">Cadastro realizado com sucesso!!</h1>
+      </div> 
+      <?php
+      endif;
+      unset($_SESSION['status_registration']);
+      ?>
+
+      <?php
+      if($_SESSION['user_exists']):
+      ?>
+      <div>
+        <h1 class="text-red-500 mx-auto text-3xl text-center bold uppercae">Usuario ja cadastrado no sistema!</h1>
+      </div>
+      <?php
+      endif;
+      unset($_SESSION['user_exists']);
+      ?>
+
+      <form action="../php/registration.php" method="POST"  class="border pl-4 pb-4 text-black border-1 rounded-lg shadow-sm w-9/12 items-center m-auto pt-2.5 ">
         <div class="grid justify-center gap-6 mb-6 md:grid-cols-2 w-9/12 m-auto">
           <div>
             <label for="nome" class="block mb-2 text-sm font-medium text-gray-900 ">Nome</label>
-            <input type="text" id="nome" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow " placeholder="George" required="">
+            <input type="text" id="nome" name="nome" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow " placeholder="George" required="">
           </div>
           <div>
             <label for="sobrenome" class="block mb-2 text-sm font-medium  ">Sobrenome</label>
-            <input type="text" id="sobrenome" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow " placeholder="Gonçalves" required="">
+            <input type="text" id="sobrenome" name="sobrenome" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow " placeholder="Gonçalves" required="">
           </div>
           <div>
 
             <label for="curso" class="block mb-2 text-sm font-medium text-gray-900 ">Curso</label>
-            <select id="curso" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow ease-in duration-150 ">
+            <select id="curso" name="course" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow ease-in duration-150 ">
               <option selected>Escolha uma categoria</option>
               <option value="info">Informatica</option>
               <option value="adm">Administraçao</option>
@@ -118,11 +144,11 @@
 
           <div>
             <label for="matricula" class=" block mb-2 text-sm font-medium text-gray-900">Matricula/SIAP</label>
-            <input type="number" id="matricula" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow  " placeholder="2022704477" required="">
+            <input type="number" id="matricula" name="registration" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow  " placeholder="2022704477" required="">
           </div>
           <div>
             <label for="catU" class="block mb-2 text-sm font-medium text-gray-900 ">Categoria de usuario</label>
-            <select id="catUser" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow ">
+            <select id="catUser" name="catuser" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow ">
               <option selected>Escolha uma categoria</option>
               <option value="SV">Servidor</option>
               <option value="AL">Aluno</option>
@@ -131,18 +157,18 @@
           <div>
 
             <label for="cpf" class="block mb-2 text-sm font-medium text-gray-900 ">CPF</label>
-            <input type="number" id="cpf" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow " placeholder="42350567811" required="">
+            <input type="number" id="cpf" name="cpf" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow " placeholder="42350567811" required="">
           </div>
         </div>
 
         <div class="mb-6 w-9/12 m-auto">
           <label for="email" class="block mb-2 text-sm font-medium text-gray-900 ">Email</label>
-          <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow " placeholder="george@aluno.iffar.edu.br" required="">
+          <input type="email" id="email" name="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow " placeholder="george@aluno.iffar.edu.br" required="">
         </div>
 
         <div class="mb-6 w-9/12 m-auto">
           <label for="password" class="block mb-2 text-sm font-medium text-gray-900 ">Senha</label>
-          <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow " placeholder="•••••••••" required="">
+          <input type="password" id="password" name="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow " placeholder="•••••••••" required="">
         </div>
 
         <div class="mb-6 w-9/12 m-auto">
@@ -151,7 +177,7 @@
         </div>
 
         <div class="flex items-start mb-6 w-9/12 m-auto">
-          <button type="submit" class="text-white bg-green-500 justify-center hover:bg-green-800 focus:ring-2 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center shadow-sm shadow-green-400/50 justify-center ">Cadastrar</button>
+          <button type="submit" class="text-white bg-green-500 justify-center hover:bg-green-800 focus:ring-2 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center shadow-sm shadow-green-400/50 justify-center ease-in-out duration-200 ">Cadastrar</button>
       </form>
 
 

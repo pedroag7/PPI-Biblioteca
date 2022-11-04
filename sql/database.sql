@@ -2,13 +2,13 @@ CREATE DATABASE IF NOT EXISTS biblioteca;
 
 CREATE TABLE users(
     idUser INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR (100) NOT NULL,
+    nameUser VARCHAR (100) NOT NULL,
     lastname VARCHAR(100) NOT NULL,
     course VARCHAR(50) NOT NULL,
     registration INT NOT NULL,
     catUser VARCHAR(50) NOT NULL,
     cpf INT(11) NOT NULL,
-    email VARCHAR (50) NOT NULL,
+    email VARCHAR (100) NOT NULL,
     senha VARCHAR (32) NOT NULL,
     PRIMARY KEY (idUser)
 );
@@ -52,4 +52,16 @@ CREATE TABLE collection(
     PRIMARY KEY (idCollection)
 );
 
-CREATE TABLE 
+CREATE TABLE login (
+    idLogin INT NOT NULL AUTO_INCREMENT,
+    idUser INT NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    senha VARCHAR(32) NOT NULL,
+    PRIMARY KEY (idLogin),
+    FOREIGN KEY (idUser) REFERENCES users(idUser),
+  
+
+
+    
+    
+);
