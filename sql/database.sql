@@ -30,8 +30,8 @@ CREATE TABLE obra(
     physicalDescription VARCHAR(100) NOT NULL,
     disponibility INT(100) NOT NULL,
     synopses VARCHAR(600) NOT NULL,
-    PRIMARY KEY (idBook),
-    FOREIGN KEY (idCollection) REFERENCES obra(idCollection)
+    PRIMARY KEY (idObra),
+    FOREIGN KEY (idCollection) REFERENCES collection(idCollection)
 );
 
 CREATE TABLE comment(
@@ -39,9 +39,11 @@ CREATE TABLE comment(
     comment VARCHAR(600) NOT NULL,
     idUser INT NOT NULL,
     idBook INT NOT NULL,
+    idObra INT NOT NULL,
     PRIMARY KEY(idComment),
     FOREIGN KEY (idUser) REFERENCES users(idUser),
-    FOREIGN KEY (idBook) REFERENCES books(idBook)
+    FOREIGN KEY (idBook) REFERENCES books(idBook),
+    FOREIGN KEY (idObra) REFERENCES obra(idObra)
 );
 
 CREATE TABLE collection(
@@ -52,16 +54,16 @@ CREATE TABLE collection(
     PRIMARY KEY (idCollection)
 );
 
-CREATE TABLE login (
-    idLogin INT NOT NULL AUTO_INCREMENT,
-    idUser INT NOT NULL,
-    email VARCHAR(100) NOT NULL,
-    senha VARCHAR(32) NOT NULL,
-    PRIMARY KEY (idLogin),
-    FOREIGN KEY (idUser) REFERENCES users(idUser),
-  
-
-
-    
-    
+CREATE TABLE authors(
+    idAuthor INT NOT NULL AUTO_INCREMENT,
+    nameAuthor VARCHAR(300) NOT NULL,
+    PRIMARY KEY (idAuthor)
 );
+
+CREATE TABLE translators (
+    translatorID INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(300),
+    PRIMARY KEY(translatorID)
+);
+
+

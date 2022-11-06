@@ -98,12 +98,14 @@ session_start();
     <div class="p-3  pt-4 max-w-screen-xl mx-auto text-gray-500 ">
 
       <h1 class="text-2xl pb-2 text-center italic "> Cadastro de usuarios </h1>
-
+      
+      <div>
       <?php
       if($_SESSION['status_registration']):
+        echo '<h1 class="text-green-500 mx-auto text-3xl text-center bold uppercase">Cadastro realizado com sucesso!!</h1>';
       ?>
-      <div>
-        <h1 class="text-green-500 mx-auto text-3xl text-center bold uppercase">Cadastro realizado com sucesso!!</h1>
+      
+        
       </div> 
       <?php
       endif;
@@ -114,7 +116,7 @@ session_start();
       if($_SESSION['user_exists']):
       ?>
       <div>
-        <h1 class="text-red-500 mx-auto text-3xl text-center bold uppercae">Usuario ja cadastrado no sistema!</h1>
+        <h1 class="text-red-500 mx-auto text-3xl text-center bold uppercase drop-shadow">CPF ja cadastrado no sistema!</h1>
       </div>
       <?php
       endif;
