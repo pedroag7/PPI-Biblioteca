@@ -1,13 +1,13 @@
 CREATE DATABASE IF NOT EXISTS biblioteca;
-
+ use biblioteca;
 CREATE TABLE users(
     idUser INT NOT NULL AUTO_INCREMENT,
     nameUser VARCHAR (100) NOT NULL,
     lastname VARCHAR(100) NOT NULL,
     course VARCHAR(50) NOT NULL,
-    registration INT NOT NULL,
+    registration BIGINT NOT NULL,
     catUser VARCHAR(50) NOT NULL,
-    cpf INT(12) NOT NULL,
+    cpf BIGINT UNSIGNED (11) NOT NULL,
     email VARCHAR (100) NOT NULL,
     senha VARCHAR (32) NOT NULL,
     PRIMARY KEY (idUser)

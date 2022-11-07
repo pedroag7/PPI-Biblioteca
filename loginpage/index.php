@@ -1,3 +1,8 @@
+<?php
+    include_once("../php/conexao.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -47,12 +52,12 @@
             Biblioteca Institucional do Instituto Federal Farroupilha
         </p>
 
-        <form class="  mx-auto space-y-6   " action="#" method="POST">
+        <form class="  mx-auto space-y-6   " action="../php/loginconfig.php" method="POST">
             <input type="hidden" name="remember" value="true">
             <div class="-space-y-px rounded-md ">
                 <div>
                     <label for="usuario" class="sr-only">Usuario</label>
-                    <input id="usuario" name="usuario" type="text" required class=" block w-80 appearance-none
+                    <input id="usuario" name="email" type="text" required class=" block w-80 appearance-none
                           rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green-500 
                           focus:outline-none focus:ring-green-500 sm:text-sm drop-shadow italic" placeholder="Usuario">
                 </div>
@@ -78,7 +83,7 @@
             </div>
 
             <div>
-                <button type="submit"
+                <button type="submit" name="submit"
                     class="group relative flex w-80 justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2  duration-300 shadow-md shadow-green-400/50 ">
                     <span class="absolute inset-y-0 left-0 flex items-center pl-3">
                         <!-- Heroicon name: mini/lock-closed -->
