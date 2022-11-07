@@ -1,6 +1,6 @@
 <?php
     $servername = "localhost";
-    $database = "cadastro";
+    $database = "biblioteca";
     $username = "root";
     $password = "";
 
@@ -12,4 +12,4 @@
             die("Falha de conexao" . mysqli_connect_error());
         }
 
-        echo "Sucesso na conexao";
+        

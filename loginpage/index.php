@@ -12,6 +12,8 @@
     <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
     <link rel="stylesheet" href="styles.css">
 
+    
+
 
     <title>Biblioteca IFFAR</title>
 
@@ -36,9 +38,9 @@
 <body class=" font-roboto bg-gradient-to-r from-emerald-500 via-green-500 to-green-500 relative flex  ">
 
     <div>
-        <img src="img2.png" alt="Logo IFF" class=" flex  absolute right-16 mr-56 mt-32 h-48 w-36 ">
+        <img src="img2.png" alt="Logo IFF" class=" flex  absolute right-16 mr-56 mt-32 h-52 w-40 2xl:mt-52 2xl:mr-96 ">
     </div>
-    <div class=" bg-slate-50 mt-16 my-auto 2xl:mt-auto ml-32  border-1 rounded-xl px-16 py-32  ">
+    <div class=" bg-slate-50 mt-16 my-auto 2xl:mt-36 ml-32 2xl:ml-48  border-1 rounded-xl px-16 py-32  ">
 
         <h2 class=" text-center text-5xl font-bold font-thin  tracking-tight text-black">Seja Bem Vindo</h2>
         <p class="mt-2  text-center italic text-sm text-gray-600">
