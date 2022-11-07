@@ -7,10 +7,18 @@ CREATE TABLE users(
     course VARCHAR(50) NOT NULL,
     registration INT NOT NULL,
     catUser VARCHAR(50) NOT NULL,
-    cpf INT(11) NOT NULL,
+    cpf INT(12) NOT NULL,
     email VARCHAR (100) NOT NULL,
     senha VARCHAR (32) NOT NULL,
     PRIMARY KEY (idUser)
+);
+
+CREATE TABLE collection(
+    idCollection INT NOT NULL AUTO_INCREMENT,
+    typeCollection VARCHAR(50) NOT NULL,
+    codCollection INT(250) NOT NULL,
+    classCDU VARCHAR(250) NOT NULL,
+    PRIMARY KEY (idCollection)
 );
 
 CREATE TABLE obra(
@@ -46,13 +54,7 @@ CREATE TABLE comment(
     FOREIGN KEY (idObra) REFERENCES obra(idObra)
 );
 
-CREATE TABLE collection(
-    idCollection INT NOT NULL AUTO_INCREMENT,
-    typeCollection VARCHAR(50) NOT NULL,
-    codCollection INT(250) NOT NULL,
-    classCDU VARCHAR(250) NOT NULL,
-    PRIMARY KEY (idCollection)
-);
+
 
 CREATE TABLE authors(
     idAuthor INT NOT NULL AUTO_INCREMENT,

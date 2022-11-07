@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("../php/conexao.php");
 ?>
 
 
@@ -100,28 +101,16 @@ session_start();
       <h1 class="text-2xl pb-2 text-center italic "> Cadastro de usuarios </h1>
       
       <div>
-      <?php
-      if($_SESSION['status_registration']):
-        echo '<h1 class="text-green-500 mx-auto text-3xl text-center bold uppercase">Cadastro realizado com sucesso!!</h1>';
-      ?>
       
-        
+      
       </div> 
-      <?php
-      endif;
-      unset($_SESSION['status_registration']);
-      ?>
+     
 
-      <?php
-      if($_SESSION['user_exists']):
-      ?>
+      
       <div>
         <h1 class="text-red-500 mx-auto text-3xl text-center bold uppercase drop-shadow">CPF ja cadastrado no sistema!</h1>
       </div>
-      <?php
-      endif;
-      unset($_SESSION['user_exists']);
-      ?>
+      
 
       <form action="../php/registration.php" method="POST"  class="border pl-4 pb-4 text-black border-1 rounded-lg shadow-sm w-9/12 items-center m-auto pt-2.5 ">
         <div class="grid justify-center gap-6 mb-6 md:grid-cols-2 w-9/12 m-auto">
@@ -146,7 +135,7 @@ session_start();
 
           <div>
             <label for="matricula" class=" block mb-2 text-sm font-medium text-gray-900">Matricula/SIAP</label>
-            <input type="number" id="matricula" name="registration" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow  " placeholder="2022704477" required="">
+            <input type="number" id="matricula" name="matricula" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow  " placeholder="2022704477" required="">
           </div>
           <div>
             <label for="catU" class="block mb-2 text-sm font-medium text-gray-900 ">Categoria de usuario</label>
@@ -159,7 +148,7 @@ session_start();
           <div>
 
             <label for="cpf" class="block mb-2 text-sm font-medium text-gray-900 ">CPF</label>
-            <input type="number" id="cpf" name="cpf" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow " placeholder="42350567811" required="">
+            <input type="number" id="cpf" name="cpf" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow " placeholder="12345678911" required=""  maxlength="11">
           </div>
         </div>
 
@@ -179,7 +168,7 @@ session_start();
         </div>
 
         <div class="flex items-start mb-6 w-9/12 m-auto">
-          <button type="submit" class="text-white bg-green-500 justify-center hover:bg-green-800 focus:ring-2 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center shadow-sm shadow-green-400/50 justify-center ease-in-out duration-200 ">Cadastrar</button>
+          <button type="submit" name="submit" class="text-white bg-green-500 justify-center hover:bg-green-800 focus:ring-2 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center shadow-sm shadow-green-400/50 justify-center ease-in-out duration-200 ">Cadastrar</button>
       </form>
 
 
