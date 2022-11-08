@@ -56,10 +56,10 @@
             <input type="hidden" name="remember" value="true">
             <div class="-space-y-px rounded-md ">
                 <div>
-                    <label for="usuario" class="sr-only">Usuario</label>
-                    <input id="usuario" name="email" type="text" required class=" block w-80 appearance-none
+                    <label for="email" class="sr-only">Email</label>
+                    <input id="email" name="email" type="text" required class=" block w-80 appearance-none
                           rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green-500 
-                          focus:outline-none focus:ring-green-500 sm:text-sm drop-shadow italic" placeholder="Usuario">
+                          focus:outline-none focus:ring-green-500 sm:text-sm drop-shadow italic" placeholder="Email">
                 </div>
                 <br>
                 <div>

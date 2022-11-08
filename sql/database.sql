@@ -46,11 +46,9 @@ CREATE TABLE comment(
     idComment INT NOT NULL AUTO_INCREMENT,
     comment VARCHAR(600) NOT NULL,
     idUser INT NOT NULL,
-    idBook INT NOT NULL,
     idObra INT NOT NULL,
     PRIMARY KEY(idComment),
     FOREIGN KEY (idUser) REFERENCES users(idUser),
-    FOREIGN KEY (idBook) REFERENCES books(idBook),
     FOREIGN KEY (idObra) REFERENCES obra(idObra)
 );
 
