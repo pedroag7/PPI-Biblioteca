@@ -4,9 +4,10 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['password']) == t
 
   unset($_SESSION['email']);
   unset($_SESSION['senha']);
-  header('Location: ../loginpage/index.php');
+  header('Location: ./loginpage/index.php');
 }
 $logado = $_SESSION['email'];
+$name = $_SESSION['name']
 ?>
 
 
@@ -21,7 +22,7 @@ $logado = $_SESSION['email'];
   <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
   <title>Pagina Inicial</title>
   <link rel="shortcut icon" href="logo.png" type="image/x-icon">
-  <link rel="stylesheet" href="swiper.css"> 
+  <link rel="stylesheet" href="./css/swiper.css"> 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -91,7 +92,7 @@ $logado = $_SESSION['email'];
                     <a href="#" class="block py-2 px-4 hover:bg-gray-100 ">Perfil</a>
                   </li>
                   <li>
-                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 ">Sair</a>
+                    <a href="./php/logout.php" class="block py-2 px-4 hover:bg-gray-100 ">Sair</a>
                   </li>
                 </ul>
               </div>
@@ -105,6 +106,8 @@ $logado = $_SESSION['email'];
     <!--Main-->
     <div class="p-3  pt-5 max-w-screen-xl mx-auto text-gray-500">
       <p class=" text-left md:pl-24 pl-16 md:text-2xl text-xl italic font-bold ">Ficçao cientifica:</p>
+      <p class=" text-left md:pl-24 pl-16 md:text-2xl text-xl italic font-bold "><?php echo $name; ?> </p>
+      
       <br>
 
       <!-- Swiper -->
@@ -125,12 +128,12 @@ $logado = $_SESSION['email'];
         <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
       </div>
-
+    
     </div>
   </div>
   
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-  <script src="../script/swiper.js"></script>
+  <script src="./script/swiper.js"></script>
   <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
  
 </body>

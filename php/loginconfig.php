@@ -8,6 +8,7 @@
 
         $sql = "SELECT * FROM users WHERE email = '$email' and senha = '$password'";
 
+
         $result = $strcon->query($sql);
 
         if(mysqli_num_rows($result) < 1){

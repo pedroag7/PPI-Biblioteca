@@ -83,6 +83,12 @@
             </div>
 
             <div>
+            <?php if (isset($_POST['submit']) && ($result < 1)) {
+                    echo ('<p class="text-sm text-red-400 font-light text-center mt-4">Email ou senha incorrentos</p>');
+                } ?>
+            </div>
+
+            <div>
                 <button type="submit" name="submit"
                     class="group relative flex w-80 justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2  duration-300 shadow-md shadow-green-400/50 ">
                     <span class="absolute inset-y-0 left-0 flex items-center pl-3">
