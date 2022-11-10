@@ -23,7 +23,7 @@ CREATE TABLE collection(
 
 CREATE TABLE obra(
     idObra INT NOT NULL AUTO_INCREMENT,
-    idCollection INT NOT NULL,
+    idCollection INT,
     title VARCHAR(100) NOT NULL,
     subtitle VARCHAR(100) NOT NULL,
     author VARCHAR(50) NOT NULL,
@@ -34,13 +34,13 @@ CREATE TABLE obra(
     translator VARCHAR(50) NOT NULL,
     publishLocation VARCHAR(100) NOT NULL,
     seriesISBN INT(100) NOT NULL,
-    cover LONGBLOB NOT NULL,
+    cover VARCHAR(100) NOT NULL,
     physicalDescription VARCHAR(100) NOT NULL,
     disponibility INT(100) NOT NULL,
     synopses VARCHAR(600) NOT NULL,
     PRIMARY KEY (idObra),
     FOREIGN KEY (idCollection) REFERENCES collection(idCollection)
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE comment(
     idComment INT NOT NULL AUTO_INCREMENT,

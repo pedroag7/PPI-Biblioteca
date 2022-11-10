@@ -106,7 +106,7 @@
                         <select id="tipoAcervo" name="category_collection"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow ">
                             <option selected>Escolha o acervo</option>
-                            <option value="">Livros</option>
+                            <option value="livros">Livros</option>
                         </select>
                     </div>
                     <div>
@@ -134,10 +134,10 @@
                         <select id="categLivro" name="category"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow ">
                             <option selected>Escolha uma categoria de obra</option>
-                            <option value="">Ficçao</option>
-                            <option value="">Romance</option>
-                            <option value="">Fantasia</option>
-                            <option value="">Livros Tecnicos</option>
+                            <option value="fic">Ficçao</option>
+                            <option value="rom">Romance</option>
+                            <option value="fant">Fantasia</option>
+                            <option value="tec">Livros Tecnicos</option>
 
                         </select>
                     </div>
@@ -210,7 +210,7 @@
                             placeholder="A guerra dos tronos é o primeiro livro da série best-seller internacional As Crônicas de Gelo e Fogo, que deu origem à adaptação de sucesso da HBO, Game of Thrones."></textarea>
                     </div>
                     
-                    <button type="submit" class="text-white bg-green-500 hover:bg-green-800 focus:ring-2 focus:outline-none focus:ring-green-300 font-medium rounded-lg
+                    <button type="submit" name="submit" class="text-white bg-green-500 hover:bg-green-800 focus:ring-2 focus:outline-none focus:ring-green-300 font-medium rounded-lg
                      text-sm w-full sm:w-auto px-5 py-2.5 text-center shadow-sm shadow-green-400/50 justify-center ease-in duration-150 ">Cadastrar</button>
                 </div>
             </form>
