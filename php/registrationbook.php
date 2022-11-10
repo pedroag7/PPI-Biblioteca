@@ -1,6 +1,8 @@
 <?php
 session_start();
 include_once('conexao.php');
+require_once $_SERVER['DOCUMENT_ROOT'] . "/ppi-biblioteca/php/imgFunc.php";
+
 
 if (isset($_POST['submit'])) {
     $category_collection['category_collection'];
@@ -20,7 +22,7 @@ if (isset($_POST['submit'])) {
     $disponibility = $_POST['disponibility'];
     $synopses = $_POST['synopses'];
 
-    $folder = "../img/covers" .$cover;
+   
 
     $sql = "select count(*) as total from obra where seriesISBN = '$isbn'";
     $result = mysqli_query($strcon, $sql);
