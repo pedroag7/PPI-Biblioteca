@@ -7,7 +7,7 @@ CREATE TABLE users(
     course VARCHAR(50) NOT NULL,
     registration BIGINT NOT NULL,
     catUser VARCHAR(50) NOT NULL,
-    cpf BIGINT UNSIGNED (11) NOT NULL,
+    cpf BIGINT  (11) UNSIGNED NOT NULL,
     email VARCHAR (100) NOT NULL,
     senha VARCHAR (32) NOT NULL,
     PRIMARY KEY (idUser)
@@ -38,7 +38,7 @@ CREATE TABLE obra(
     physicalDescription VARCHAR(100) NOT NULL,
     disponibility INT(100) NOT NULL,
     synopses VARCHAR(600) NOT NULL,
-    userLevel ENUM ('administrator','moderator', 'normal') DEFAULT ('normal');
+    userLevel ENUM ('administrator','moderator', 'normal') DEFAULT ('normal'),
     PRIMARY KEY (idObra),
     FOREIGN KEY (idCollection) REFERENCES collection(idCollection)
 );

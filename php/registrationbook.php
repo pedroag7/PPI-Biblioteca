@@ -5,7 +5,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/ppi-biblioteca/php/imgFunc.php";
 
 
 if (isset($_POST['submit'])) {
-    $category_collection['category_collection'];
+    //$category_collection['category_collection'];
     $title = $_POST['title'];
     $subtitle = $_POST['subtitle'];
     $author = $_POST['author'];
@@ -16,11 +16,14 @@ if (isset($_POST['submit'])) {
     $translator = $_POST['translator'];
     $publishlocal = $_POST['publishlocal'];
     $isbn = $_POST['isbn'];
-    $cover = $_FILES["cover"]["name"];
-    $filename = $_FILES["cover"]["tmp_name"];
+    $path_cover = $_FILES["imagem"]["cover"];
     $descphysic = $_POST['descphysic'];
     $disponibility = $_POST['disponibility'];
     $synopses = $_POST['synopses'];
+
+    if(!$path_cover = img($_FILES['imagem'], "cover")){
+        die("Arquivo Invalido");
+    }
 
    
 
@@ -36,7 +39,7 @@ if (isset($_POST['submit'])) {
 
     $sqlinsert = mysqli_query($strcon, " INSERT INTO obra (title, subtitle, author, category, publicationDate, publishCompany, codObra, translator, publishLocation, seriesISBN, cover, physicalDescription, disponibility, synopses) 
      VALUES ('$title', '$subtitle', '$author', '$category', '$publishyear', '$company',
-     '$codbook', '$translator', '$publishlocal', '$isbn', '$cover', '$descphysic', '$disponibility', '$synopses')");
+     '$codbook', '$translator', '$publishlocal', '$isbn', '$path_cover', '$descphysic', '$disponibility', '$synopses')");
 
     if (move_uploaded_file($filename, $folder)) {
         echo "funfou";

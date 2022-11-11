@@ -1,5 +1,6 @@
 <?php
     session_start();
+    
 ?>
 
 <!DOCTYPE html>
@@ -99,7 +100,7 @@
 
             <h1 class="text-2xl pb-2 text-center italic "> Cadastro de Obras </h1>
 
-            <form class=" border pl-4 pb-4 text-black border-1 rounded-lg shadow-sm w-9/12 items-center m-auto pt-2.5" action="../php/registrationbook.php" method="POST">
+            <form class=" border pl-4 pb-4 text-black border-1 rounded-lg shadow-sm w-9/12 items-center m-auto pt-2.5"  enctype="multipart/form-data" action="../php/registrationbook.php" method="POST">
                 <div class="grid justify-center gap-6 mb-6 md:grid-cols-2 w-9/12 m-auto">
                     <div>
                         <label for="tipoAcervo" class="block mb-2 text-sm font-medium text-gray-900 ">Acervo</label>
@@ -183,11 +184,11 @@
                             placeholder="8556510906" required="">
                     </div>
                     <div>
-                        <label class="block mb-2 text-sm font-medium text-gray-900 " for="selectImg">Selecionar
+                        <label class="block mb-2 text-sm font-medium text-gray-900 " for="imagem">Selecionar
                             Imagem</label>
                         <input
                             class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer focus:outline-none drop-shadow "
-                            name="cover" id="selectImg" type="file" multiple accept="image/*">
+                            name="imagem" id="imagem" type="file" multiple accept="image/*">
                     </div>
                     <div class="">
                         <label for="descFisica" class="block mb-2 text-sm font-medium text-gray-900 ">Descriçao

@@ -8,7 +8,7 @@
         if(preg_match("/(png|jpg|jpeg)/", $extension) == 0){
             return false;
         }
-        $path = $_SERVER['DOCUMENT_ROOT'] . "/BibliIF/conexao/bd/img/" . $pasta . "/" . uniqid() . ".$extension";
+        $path = $_SERVER['DOCUMENT_ROOT'] . "/ppi-biblioteca/img/covers" . $pasta . "/" . uniqid() . ".$extension";
         move_uploaded_file($img['tmp_name'], $path);
         return($path);
     }
