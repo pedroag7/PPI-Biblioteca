@@ -38,9 +38,10 @@ CREATE TABLE obra(
     physicalDescription VARCHAR(100) NOT NULL,
     disponibility INT(100) NOT NULL,
     synopses VARCHAR(600) NOT NULL,
+    userLevel ENUM ('administrator','moderator', 'normal') DEFAULT ('normal');
     PRIMARY KEY (idObra),
     FOREIGN KEY (idCollection) REFERENCES collection(idCollection)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+);
 
 CREATE TABLE comment(
     idComment INT NOT NULL AUTO_INCREMENT,
