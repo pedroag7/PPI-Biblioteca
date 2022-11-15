@@ -109,7 +109,10 @@ include("../php/registration.php");
 
       
       <div>
-        <h1 class="text-red-500 mx-auto text-3xl text-center bold uppercase drop-shadow">CPF ja cadastrado no sistema!</h1>
+      <?php if($_SESSION['user_exists'] ){
+          echo ('<h1 class="text-red-500 mx-auto text-3xl text-center bold uppercase drop-shadow">CPF ja cadastrado no sistema!</h1>');
+        }
+        ?>
       </div>
       
 

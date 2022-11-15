@@ -18,9 +18,12 @@
             header('Location: ../loginpage/index.php');
         }
         else{
-            header('Location: ../index.php');
-            $_SESSION['email'] = $email;
+            $user = $sql_query->fetch_assoc();
+            session_start();
+            $_SESSION[''] = $email;
             $_SESSION['senha'] = $password;
+            header('Location: ../index.php');
+          
             
         }
 

@@ -7,7 +7,7 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['password']) == t
   header('Location: ./loginpage/index.php');
 }
 $logado = $_SESSION['email'];
-$name = $_SESSION['name']
+//$name = $_SESSION['name']
 ?>
 
 
@@ -106,7 +106,7 @@ $name = $_SESSION['name']
     <!--Main-->
     <div class="p-3  pt-5 max-w-screen-xl mx-auto text-gray-500">
       <p class=" text-left md:pl-24 pl-16 md:text-2xl text-xl italic font-bold ">Ficçao cientifica:</p>
-      <p class=" text-left md:pl-24 pl-16 md:text-2xl text-xl italic font-bold "><?php echo $name; ?> </p>
+      <p class=" text-left md:pl-24 pl-16 md:text-2xl text-xl italic font-bold "> <?php //echo $name; ?> </p>
       
       <br>
 
