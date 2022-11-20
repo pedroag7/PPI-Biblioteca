@@ -37,18 +37,19 @@ include_once("../php/conexao.php");
     </script>
 </head>
 
-<body class=" font-roboto bg-gradient-to-r from-emerald-500 via-green-500 to-green-500 relative flex  ">
+<body class=" font-roboto  bg-gradient-to-r min-h-screen from-emerald-500 via-green-500 to-green-500 md:relative md:flex   ">
 
-    <div>
-        <img src="img2.png" alt="Logo IFF" class=" flex  absolute right-16 mr-56 mt-32 h-52 w-40 2xl:mt-52 2xl:mr-96 ">
+    <div class="md:absolute md:right-16 flex my-auto">
+        <img src="img2.png" alt="Logo IFF" class="  md:visible md:mr-56 md:mt-32 md:h-52 md:w-40 2xl:mt-52 2xl:mr-96   h-20  w-16 ">
+        <h2 class="  text-xl my-auto  italic font-thin text-right tracking-tight text-slate-50 "> Instituto Federal Farroupilha </h2>
     </div>
     
-    <div class=" bg-slate-50 mt-8 my-4 2xl:mt-36 ml-32 2xl:ml-48  border-1 rounded-xl px-16 py-8 ">
+    <div class=" bg-white md:mt-auto md:my-auto 2xl:mt-36 md:ml-32 2xl:ml-48 rounded-xl md:px-16 md:py-16 py-4 px-4 m-auto mt-2   ">
 
         <h2 class=" text-center text-5xl font-bold font-thin mx-auto tracking-tight text-black">Cadastre-se</h2>
         <p class="mt-2  text-center italic text-sm text-gray-600"> Realize seu cadastro para utilizar o nosso sistema!</p>
 
-        <form class="  mx-auto space-y-6   " action="../php/loginconfig.php" method="POST">
+        <form class="space-y-6 " action="../php/loginconfig.php" method="POST">
             <div class="space-y-2.5 mt-2 rounded-md ">
                 <div>
                     <label for="nome" class="sr-only">Nome</label>
@@ -65,7 +66,7 @@ include_once("../php/conexao.php");
 
                 <div>
                     <label for="catUser" class="block text-sm text-gray-900 sr-only ">Categoria de usuario</label>
-                    <select id="catUser" name="catuser" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full  px-3 py-2 drop-shadow ">
+                    <select id="catUser" name="catuser" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 block w-80  px-3 py-2 drop-shadow ">
                       <option selected>Servidor ou aluno</option>
                       <option value="SV">Servidor</option>
                       <option value="AL">Aluno</option>
@@ -74,7 +75,7 @@ include_once("../php/conexao.php");
 
                 <div>
                     <label for="curso" class="block text-sm  text-gray-900 sr-only ">Curso</label>
-                    <select id="curso" name="course" class="bg-gray-white border border-gray-300 text-gray-500 text-sm rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full px-3 py-2 drop-shadow ease-in duration-150 ">
+                    <select id="curso" name="course" class="bg-gray-white border border-gray-300 text-gray-500 text-sm rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 block w-80 px-3 py-2 drop-shadow ease-in duration-150 ">
                       <option selected>Escolha seu curso</option>
                       <option value="info">Informatica</option>
                       <option value="adm">Administraçao</option>
