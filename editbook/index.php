@@ -140,7 +140,7 @@ $result = $strcon->query($sql)
                             while ($user_data = mysqli_fetch_assoc($result)) {
                                 echo ('<tr class="bg-white border-b  ">' .
                                     '<th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap flex ">' .
-                                    '<span class="my-auto"> ' . $user_data['title'] . '</span>' . '<img src="'.$user_data['cover'].'" class="w-4 ">'.
+                                    '<span class="my-auto"> ' . $user_data['title'] . '</span>' . '<img src="'.$user_data['cover'].'" class=" ml-2 w-20 ">'.
                                     '</th>' .
                                     '<td class="py-4 px-6">' .
                                     $user_data['idCollection'] .
