@@ -10,6 +10,7 @@ CREATE TABLE users(
     cpf BIGINT  (11) UNSIGNED NOT NULL,
     email VARCHAR (100) NOT NULL,
     senha VARCHAR (32) NOT NULL,
+    userLevel ENUM ('administrator','moderator', 'normal') DEFAULT ('normal'),
     PRIMARY KEY (idUser)
 );
 
@@ -38,7 +39,6 @@ CREATE TABLE obra(
     physicalDescription VARCHAR(100) NOT NULL,
     disponibility INT(100) NOT NULL,
     synopses VARCHAR(600) NOT NULL,
-    userLevel ENUM ('administrator','moderator', 'normal') DEFAULT ('normal'),
     PRIMARY KEY (idObra),
     FOREIGN KEY (idCollection) REFERENCES collection(idCollection)
 );

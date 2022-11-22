@@ -6,10 +6,10 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['password']) == t
 
     unset($_SESSION['email']);
     unset($_SESSION['senha']);
-    header('Location: ./login/index.php');
+    header('Location: ../login/index.php');
 }
 
-$sql = "SELECT * FROM users ORDER BY nameUser DESC";
+$sql = "SELECT * FROM obra ORDER BY title DESC";
 $result = $strcon->query($sql)
 
 ?>
@@ -111,16 +111,16 @@ $result = $strcon->query($sql)
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
                             <tr>
                                 <th scope="col" class="py-3 px-6">
-                                    Nome
+                                    Titulo
                                 </th>
                                 <th scope="col" class="py-3 px-6">
-                                    Categoria de usuario
+                                    Acervo
                                 </th>
                                 <th scope="col" class="py-3 px-6">
-                                    Matricula/siap
+                                    Editora
                                 </th>
                                 <th scope="col" class="py-3 px-6">
-                                    Email
+                                    Autor
                                 </th>
                                 <th scope="col" class="py-3 px-6">
                                     Id
@@ -140,29 +140,29 @@ $result = $strcon->query($sql)
                             while ($user_data = mysqli_fetch_assoc($result)) {
                                 echo ('<tr class="bg-white border-b  ">' .
                                     '<th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap flex ">' .
-                                    '<span class="my-auto"> ' . $user_data['nameUser'] . " " . $user_data['lastname'] . '</span>' .
+                                    '<span class="my-auto"> ' . $user_data['title'] . '</span>' . '<img src="'.$user_data['cover'].'" class="w-4 ">'.
                                     '</th>' .
                                     '<td class="py-4 px-6">' .
-                                    $user_data['catUser'] .
+                                    $user_data['idCollection'] .
                                     '</td>' .
                                     '.<td class="py-4 px-6">'
-                                    . $user_data['registration'] .
+                                    . $user_data['publishCompany'] .
                                     '</td>'
                                     . '<td class="py-4 px-6">'
-                                    . $user_data['email']
+                                    . $user_data['author']
                                     . '</td>' .
                                     '<td class="py-4 px-6">'
-                                    . $user_data['idUser']
+                                    . $user_data['idObra']
                                     . '</td>' .
                                     '<td class="py-4 px-4">' .
-                                    '<a href="./edit.php?id=' . $user_data['idUser'] . '"
+                                    '<a href="./edit.php?id=' . $user_data['idObra'] . '"
                                         class=" flex  rounded-lg  text-center  hover:bg-green-600 hover:text-white duration-200 ease-in-out font-medium text-green-600 hover:underline  "><svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-6 w-6 " fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                                         <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                                       </svg></a>' .
                                     '</td>' . 
                                     '<td class="py-4 px-4">' .
-                                    '<a href="../php/deleteuser.php?id=' . $user_data['idUser'] . '"
+                                    '<a href="../php/deletebook.php?id=' . $user_data['idObra'] . '"
                                         class=" flex  rounded-lg  text-center  hover:bg-red-600 hover:text-white duration-200 ease-in-out font-medium text-red-600 hover:underline  "><svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-6 w-6" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256"><path fill="currentColor" d="M216 48h-40v-8a24.1 24.1 0 0 0-24-24h-48a24.1 24.1 0 0 0-24 24v8H40a8 8 0 0 0 0 16h8v144a16 16 0 0 0 16 16h128a16 16 0 0 0 16-16V64h8a8 8 0 0 0 0-16ZM96 40a8 8 0 0 1 8-8h48a8 8 0 0 1 8 8v8H96Zm96 168H64V64h128Zm-80-104v64a8 8 0 0 1-16 0v-64a8 8 0 0 1 16 0Zm48 0v64a8 8 0 0 1-16 0v-64a8 8 0 0 1 16 0Z"/></svg> </a>' .
                                     '</td>'.
                                     '</tr>"');
