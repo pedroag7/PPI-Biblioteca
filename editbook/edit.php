@@ -127,7 +127,7 @@ if (!empty($_GET['id'])) {
 
             <h1 class="text-2xl pb-2 text-center italic "> Cadastro de Obras </h1>
 
-            <form class=" border pl-4 pb-4 text-black border-1 rounded-lg shadow-sm w-9/12 items-center m-auto pt-2.5"  enctype="multipart/form-data" action="../php/registrationbook.php" method="POST">
+            <form class=" border pl-4 pb-4 text-black border-1 rounded-lg shadow-sm w-9/12 items-center m-auto pt-2.5"  enctype="multipart/form-data" action="../php/editbook.php" method="POST">
                 <div class="grid justify-center gap-6 mb-6 md:grid-cols-2 w-9/12 m-auto">
                     <div>
                         <label for="tipoAcervo" class="block mb-2 text-sm font-medium text-gray-900 ">Acervo</label>
@@ -237,7 +237,8 @@ if (!empty($_GET['id'])) {
                             class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 drop-shadow "
                             value="<?php echo $sinopsee ?>" required=""> </textarea>
                     </div>
-                    
+
+                    <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <button type="submit" name="update" class="text-white bg-green-500 hover:bg-green-800 focus:ring-2 focus:outline-none focus:ring-green-300 font-medium rounded-lg
                      text-sm w-full sm:w-auto px-5 py-2.5 text-center shadow-sm shadow-green-400/50 justify-center ease-in duration-150 ">Cadastrar</button>
                 </div>

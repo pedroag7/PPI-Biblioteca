@@ -1,6 +1,8 @@
 <?php
-include_once('conexao.php');
+    include_once('conexao.php');
+    require_once $_SERVER['DOCUMENT_ROOT'] . "/ppi-biblioteca/php/imgFunc.php";
     if (isset($_POST['update'])) {
+        $idObra = $_POST['id'];
         $title = mysqli_real_escape_string($strcon, $_POST['title']);
         $subtitle = $_POST['subtitle'];
         $author = $_POST['author'];
@@ -20,7 +22,7 @@ include_once('conexao.php');
             die("Arquivo Invalido");
         }
 
-        $sqlinsert = mysqli_query($strcon, "UPDATE obra SET title='$title', subtitle='$subtitle', author='$author', category='$category', publicationDate='$publishyear', publishCompany='$company', codObra='$codbook', translator='$translator', publishLocation='$publishlocal', seriesISBN='$isbn', cover='$path_cover', physicalDescription='$descphysic', disponibility='$disponibility', synopses='$synopses'   WHERE idUser='$idObra'");
+        $sqlinsert = mysqli_query($strcon, "UPDATE obra SET title='$title', subtitle='$subtitle', author='$author', category='$category', publicationDate='$publishyear', publishCompany='$company', codObra='$codbook', translator='$translator', publishLocation='$publishlocal', seriesISBN='$isbn', cover='$path_cover', physicalDescription='$descphysic', disponibility='$disponibility', synopses='$synopses'   WHERE idObra='$idObra'");
 
 
 

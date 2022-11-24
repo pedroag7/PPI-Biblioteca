@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once('./php/conexao.php');
 if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['password']) == true)) {
 
   unset($_SESSION['email']);
@@ -7,6 +8,10 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['password']) == t
   header('Location: ./login/index.php');
 }
 $logado = $_SESSION['email'];
+
+
+
+
 //$name = $_SESSION['name']
 ?>
 
@@ -22,12 +27,12 @@ $logado = $_SESSION['email'];
   <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
   <title>Pagina Inicial</title>
   <link rel="shortcut icon" href="logo.png" type="image/x-icon">
-  <link rel="stylesheet" href="./css/swiper.css"> 
+  <link rel="stylesheet" href="./css/swiper.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
-  
+
 
 
 
@@ -106,16 +111,31 @@ $logado = $_SESSION['email'];
     <!--Main-->
     <div class="p-3  pt-5 max-w-screen-xl mx-auto text-gray-500">
       <p class=" text-left md:pl-24 pl-16 md:text-2xl text-xl italic font-bold ">Ficçao cientifica:</p>
-      <p class=" text-left md:pl-24 pl-16 md:text-2xl text-xl italic font-bold "> <?php //echo $name; ?> </p>
-      
+      <p class=" text-left md:pl-24 pl-16 md:text-2xl text-xl italic font-bold "> <?php //echo $name; 
+                                                                                  ?> </p>
+
       <br>
 
       <!-- Swiper -->
 
       <div class=" swiper mySwiper">
         <div class="swiper-wrapper">
+          <?php
+          $sql = "SELECT * FROM obra ORDER BY title DESC limit 9";
+          $result = $strcon->query($sql);
+
+          if ($result->num_rows > 0) {
+
+            while ($user_data = mysqli_fetch_assoc($result)) {
+              $idObra = $user_data['idObra'];
+              $capa = $user_data['cover'];
+
+              echo "<div class=\"swiper-slide\"> \"<a href=\"./livro/index.html\"><img src=\"/$capa\" class=\"w-32 h-24 rounded-lg object-cover \"></a>\"</div>";
+            }
+          }
+          ?>
+
           <div class="swiper-slide"><a href="./livro/index.html"><img src="dunabook.jpg" class="w-32 h-24 rounded-lg object-cover "></a></div>
-          <div class="swiper-slide">Slide 2</div>
           <div class="swiper-slide">Slide 3</div>
           <div class="swiper-slide">Slide 4</div>
           <div class="swiper-slide">Slide 5</div>
@@ -128,14 +148,14 @@ $logado = $_SESSION['email'];
         <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
       </div>
-    
+
     </div>
   </div>
-  
+
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
   <script src="./script/swiper.js"></script>
   <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
- 
+
 </body>
 
 </html>

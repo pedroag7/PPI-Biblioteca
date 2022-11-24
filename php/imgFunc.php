@@ -1,5 +1,5 @@
 <?php
-    function img($img, $pasta){
+    function img($img){
         $extension =  pathinfo($img['full_path'], PATHINFO_EXTENSION);
 
         if($img['size'] > 2097152){
