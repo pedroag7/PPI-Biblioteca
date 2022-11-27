@@ -41,7 +41,7 @@ include_once("../php/conexao.php");
 
     <div class="md:absolute md:right-16 flex my-auto">
         <img src="img2.png" alt="Logo IFF" class="  md:visible md:mr-56 md:mt-32 md:h-52 md:w-40 2xl:mt-52 2xl:mr-96   h-20  w-16 ">
-        <h2 class="  text-xl my-auto  italic font-thin text-right tracking-tight text-slate-50 "> Instituto Federal Farroupilha </h2>
+        <h2 class="  text-xl my-auto  italic font-thin text-right tracking-tight text-slate-50 md:hidden "> Instituto Federal Farroupilha </h2>
     </div>
     
     <div class=" bg-white md:mt-auto md:my-auto 2xl:mt-36 md:ml-32 2xl:ml-48 rounded-xl md:px-16 md:py-16 py-4 px-4 m-auto mt-2   ">
@@ -49,7 +49,7 @@ include_once("../php/conexao.php");
         <h2 class=" text-center text-5xl font-bold font-thin mx-auto tracking-tight text-black">Cadastre-se</h2>
         <p class="mt-2  text-center italic text-sm text-gray-600"> Realize seu cadastro para utilizar o nosso sistema!</p>
 
-        <form class="space-y-6 " action="../php/loginconfig.php" method="POST">
+        <form class="space-y-6 " action="../php/signup.php" method="POST">
             <div class="space-y-2.5 mt-2 rounded-md ">
                 <div>
                     <label for="nome" class="sr-only">Nome</label>
@@ -77,22 +77,31 @@ include_once("../php/conexao.php");
                     <label for="curso" class="block text-sm  text-gray-900 sr-only ">Curso</label>
                     <select id="curso" name="course" class="bg-gray-white border border-gray-300 text-gray-500 text-sm rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 block w-80 px-3 py-2 drop-shadow ease-in duration-150 ">
                       <option selected>Escolha seu curso</option>
-                      <option value="info">Informatica</option>
-                      <option value="adm">Administraçao</option>
-                      <option value="agro">Agropecuaria</option>
+                      <option value="TecInfo">Tec Informatica</option>
+                      <option value="TecAdm">Tec Administraçao</option>
+                      <option value="TecAgro">Tec Agro</option>
+                      <option value="bComputaçao">Bacharelado Ciencia Da Computação</option>
+                      <option value="bMedVet">Bacharelado Medicina Veterinaria</option>
+                      <option value="lMatematica">Licenciatura Matematica</option>
+                      <option value="bAdm">Bacharelado ADM</option>
                     </select>
                   </div>
                 <div>
-                    <label for="email" class="sr-only">Cpf</label>
-                    <input id="email" name="email" type="text" required class=" block w-80 appearance-none
+                    <label for="matricula" class="sr-only">Matricula</label>
+                    <input id="matricula" name="registration" type="text" required class=" block w-80 appearance-none
                           rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green-500 
                           focus:outline-none focus:ring-green-500 sm:text-sm drop-shadow italic" placeholder="Matricula">
                 </div>
                 <div>
-                    <label for="email" class="sr-only">CPF</label>
-                    <input id="email" name="email" type="text" required class=" block w-80 appearance-none
+                    <label for="CPF" class="sr-only">CPF</label>
+                    <input id="CPF" name="email" type="text" required class=" block w-80 appearance-none
                           rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green-500 
                           focus:outline-none focus:ring-green-500 sm:text-sm drop-shadow italic" placeholder="CPF">
+                </div>
+
+                <div>
+                    <label for="email" class="sr-only">Email</label>
+                    <input id="email" name="email" type="email"  required="" class="block w-80 appearance-none  rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm drop-shadow italic" placeholder="Email">
                 </div>
 
                 <div>
