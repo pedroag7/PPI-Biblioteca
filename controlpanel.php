@@ -115,10 +115,10 @@
             <div class=" grid justify-center gap-6 mt-2 mb-6 md:grid-cols-4 w-9/12 mx-auto ">
 
                 <div>
-                    <label for="cadLivro" class="sr-only">Cadastro de livro</label>
+                    <label for="cadLivro" class="sr-only">Cadastro de Obras</label>
                     <a href="./cadastrarLivro/index.php"><button
-                            class="uppercase bg-green-600 text-white ring  rounded-md  p-9 transform ease-in-out duration-200 hover:scale-105 shadow-lg shadow-green-400/50 "
-                            id="cadLivro">Cadastro de livros
+                            class="uppercase bg-green-600 text-white ring text-sm rounded-md  p-9 transform ease-in-out duration-200 hover:scale-105 shadow-lg shadow-green-400/50 "
+                            id="cadLivro">Cadastro de Obras
                             <svg xmlns="http://www.w3.org/2000/svg" class="m-auto" width="4rem" height="4rem"
                                 preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                                 <path fill="#fefefe"
@@ -129,7 +129,7 @@
                 <div>
                     <label for="cadUsers" class="sr-only">Cadastro de Usuarios</label>
                     <a href="./cadastrousuario/index.php"><button
-                            class="uppercase bg-green-600 text-white  rounded-md ring p-9 transform ease-in-out duration-200 hover:scale-105 shadow-lg shadow-green-400/50 "
+                            class="uppercase bg-green-600 text-white text-sm  rounded-md ring p-9 transform ease-in-out duration-200 hover:scale-105 shadow-lg shadow-green-400/50 "
                             id="cadUsers">Cadastro de Usuarios
                             <svg xmlns="http://www.w3.org/2000/svg" class="m-auto" width="4rem" height="4rem"
                                 preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32">
@@ -144,12 +144,36 @@
                 <div>
                     <label for="cadAcervo" class="sr-only">Cadastro de Acervo</label>
                     <a href="createcollection.html"><button
-                            class="uppercase bg-green-600 text-white rounded-md ring p-9 transform ease-in-out duration-200 hover:scale-105 shadow-lg shadow-green-400/50">
+                            class="uppercase bg-green-600 text-sm text-white rounded-md ring p-9 transform ease-in-out duration-200 hover:scale-105 shadow-lg shadow-green-400/50">
                             Cadastro De Acervo <svg xmlns="http://www.w3.org/2000/svg" width="4rem" height="4rem" class="m-auto"
                                 preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16">
                                 <path fill="#fefefe"
                                     d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13z" />
                                 </svg> </button></a>
+                </div>
+
+                <div>
+                    <label for="cadUsers" class="sr-only">Listagem e edição de usuarios</label>
+                    <a href="./cadastrousuario/index.php"><button
+                            class="uppercase text-sm bg-green-600 text-white  rounded-md ring p-9 transform ease-in-out duration-200 hover:scale-105 shadow-lg shadow-green-400/50 "
+                            id="cadUsers">Listagem e edição de usuarios
+                            <svg xmlns="http://www.w3.org/2000/svg" width="4rem" height="4rem" class="mx-auto" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256"><path fill="currentColor" d="M144 80a8 8 0 0 1 8-8h96a8 8 0 0 1 0 16h-96a8 8 0 0 1-8-8Zm104 40h-96a8 8 0 0 0 0 16h96a8 8 0 0 0 0-16Zm0 48h-72a8 8 0 0 0 0 16h72a8 8 0 0 0 0-16Zm-98.3 22a7.9 7.9 0 0 1-5.7 9.7l-2 .3a8.1 8.1 0 0 1-7.8-6a56 56 0 0 0-108.4 0a8 8 0 0 1-9.8 5.7a7.9 7.9 0 0 1-5.7-9.7a72 72 0 0 1 40.6-47.9a48 48 0 1 1 58.2 0a72 72 0 0 1 40.6 47.9ZM80 136a32 32 0 1 0-32-32a32.1 32.1 0 0 0 32 32Z"/></svg>
+                        </button></a>
+                </div>
+
+                <div>
+                    <label for="cadLivro" class="sr-only">Listagem e ediçao de Obras</label>
+                    <a href="./cadastrarLivro/index.php"><button
+                            class="uppercase bg-green-600 text-sm text-white ring  rounded-md  p-9 transform ease-in-out duration-200 hover:scale-105 shadow-lg shadow-green-400/50 "
+                            id="cadLivro">Listagem e ediçao de Obras
+                            <svg xmlns="http://www.w3.org/2000/svg" width="4rem" height="4rem" class="mx-auto" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M10 14h4v-2h-4Zm0-3h8V9h-8Zm0-3h8V6h-8ZM8 18q-.825 0-1.412-.587Q6 16.825 6 16V4q0-.825.588-1.413Q7.175 2 8 2h12q.825 0 1.413.587Q22 3.175 22 4v12q0 .825-.587 1.413Q20.825 18 20 18Zm0-2h12V4H8v12Zm-4 6q-.825 0-1.412-.587Q2 20.825 2 20V6h2v14h14v2ZM8 4v12V4Z"/></svg></button></a>
+                </div>
+
+                <div>
+                    <label for="cadAcervo" class="sr-only">Listagem e ediçao de acervos</label>
+                    <a href="./listcollection/index.php"><button
+                            class="uppercase bg-green-600 text-sm text-white rounded-md ring p-9 transform ease-in-out duration-200 hover:scale-105 shadow-lg shadow-green-400/50">
+                            Listagem e ediçao de acervos <svg xmlns="http://www.w3.org/2000/svg" width="4rem" height="4rem" class="mx-auto" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M8.42 10.61a2.1 2.1 0 1 1 2.97 2.97L5.95 19L2 20l.99-3.95l5.43-5.44Z"/><path d="M2 11.5V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H20a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-9.5"/></g></svg></a>
                 </div>
 
             </div>

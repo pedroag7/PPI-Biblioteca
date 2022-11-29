@@ -37,7 +37,7 @@ CREATE TABLE obra(
     seriesISBN INT(100) NOT NULL,
     cover VARCHAR(100) NOT NULL,
     physicalDescription VARCHAR(100) NOT NULL,
-    disponibility INT(100) NOT NULL,
+    disponibility VARCHAR(100) NOT NULL,
     synopses VARCHAR(600) NOT NULL,
     PRIMARY KEY (idObra),
     FOREIGN KEY (idCollection) REFERENCES collection(idCollection)
