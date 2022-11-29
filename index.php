@@ -130,7 +130,7 @@ $logado = $_SESSION['email'];
               $idObra = $user_data['idObra'];
               $capa = $user_data['cover'];
 
-              echo "<div class=\"swiper-slide\"> \"<a href=\"./livro/index.html\"><img src=\"/$capa\" class=\"w-32 h-24 rounded-lg object-cover \"></a>\"</div>";
+              echo "<div class=\"swiper-slide\"> <a href=\"./livro/index.php?id=$idObra\"><img src=\"ppi-biblioteca/$capa\" class=\"w-32 h-24 rounded-lg object-cover \"></a></div>";
             }
           }
           ?>

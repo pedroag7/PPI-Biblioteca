@@ -124,8 +124,8 @@
                             placeholder="A Guerra dos Tronos" required="">
                     </div>
                     <div>
-                        <label for="nAutor" class="block mb-2 text-sm font-medium  ">Nome do Autor</label>
-                        <input type="text" name="author" id="nAutor"
+                        <label for="author" class="block mb-2 text-sm font-medium  ">Nome do Autor</label>
+                        <input type="text" name="author" id="author"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow "
                             placeholder="George R.R Martin" required="">
                     </div>
@@ -198,9 +198,9 @@
                             placeholder="600 Paginas" required="">
                     </div>
                     <div class="">
-                        <label for="dispon"
+                        <label for="disponi"
                             class="block mb-2 text-sm font-medium text-gray-900 ">Disponibilidade</label>
-                        <input type="text" name="disponibility" id="dispon"
+                        <input type="text" name="disponi" id="disponi"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow"
                             placeholder="7 Unidades" required="">
                     </div>

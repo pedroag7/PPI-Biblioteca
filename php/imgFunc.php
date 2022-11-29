@@ -8,7 +8,7 @@
         if(preg_match("/(png|jpg|jpeg)/", $extension) == 0){
             return false;
         }
-        $path =  $_SERVER["DOCUMENT_ROOT"]. "/ppi-biblioteca/img/covers"  . "/" . uniqid() . ".$extension";
+        $path =  getcwd(). "/../img/covers"  . "/" . uniqid() . ".$extension";
         move_uploaded_file($img['tmp_name'], $path);
         return($path);
     }
