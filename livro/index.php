@@ -117,10 +117,10 @@ if (!empty($_GET['id'])) {
             <div class=" mx-auto  item-center flex">
                 <div class="mx-auto flex pt-8 pb-2  text-right">
                     <img src="<?php echo $cover; ?>" alt="Livro Duna" class=" md:mr-10 mr-4 rounded-lg drop-shadow md:w-48 md:h-72 w-32 h-48 object-cover">
-                    <div class="text-left md:max-w-2xl max-w-md  break-all md:break-words	 md:text-2sm tex-xs pt-1 ">
+                    <div class="text-left md:max-w-2xl max-w-md  md:break-words	 md:text-2sm tex-xs pt-1 ">
                         <h1 class=" md:text-4xl text-2xl text-slate-800 uppercase"><?php echo $title; ?></h1>
 
-                        <p class=" "><?php echo $synopses; ?> </p>
+                        <p class="break-words  "><?php echo $synopses; ?> </p>
                         <br>
 
                         <p class="italic"> Disponibilidade: <strong> <?php echo $disponi; ?> </strong> </p>

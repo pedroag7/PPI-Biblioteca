@@ -1,5 +1,38 @@
 <?php
-include_once("../php/conexao.php");
+    require_once("../php/conexao.php");
+    if (isset($_POST['email']) || isset($_POST['senha'])){
+        if(strlen($_POST['email']) == 0 ){
+            echo "Preencha Seu Email";
+        }else if(strlen($_POST['senha']) == 0){
+            echo "Preencha Sua Senha";
+        } else{
+            $email = mysqli_real_escape_string($strcon, $_POST['email']);
+            $senha = mysqli_real_escape_string($strcon, $_POST['senha']);
+
+            $sqlcode = "SELECT * FROM users WHERE email = '$email' AND senha = '$senha'";
+            $sql_query = $strcon->query($sqlcode) or die ("Erro na execuçao da query");
+            $quantidade = $sql_query->num_rows;
+            
+            if($quantidade == 1 ){
+                $usuario = $sql_query->fetch_assoc();
+
+                if (!isset($_SESSION)){
+                    session_start();
+                }
+
+                $_SESSION['name'] = $usuario['nameUser'];
+                $_SESSION['id'] = $usuario['id'];
+
+                header("Location: ../index.php");
+                
+
+               
+            }else{
+                echo "Verifique seu email e senha";
+            }
+        }
+
+    }
 
 ?>
 
@@ -51,7 +84,7 @@ include_once("../php/conexao.php");
             Biblioteca Institucional do Instituto Federal Farroupilha
         </p>
 
-        <form class=" space-y-6" action="../php/loginconfig.php" method="POST">
+        <form class=" space-y-6" action="" method="POST">
             <input type="hidden" name="remember" value="true">
             <div class="-space-y-px rounded-md ">
                 <div>
@@ -63,7 +96,7 @@ include_once("../php/conexao.php");
                 <br>
                 <div>
                     <label for="password" class="sr-only">Password</label>
-                    <input id="password" name="password" type="password" autocomplete="current-password" required class="block w-80 appearance-none  rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm drop-shadow italic" placeholder="Senha">
+                    <input id="password" name="senha" type="password" autocomplete="current-password" required class="block w-80 appearance-none  rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm drop-shadow italic" placeholder="Senha">
                 </div>
             </div>
 
@@ -84,7 +117,7 @@ include_once("../php/conexao.php");
             </div>
 
             <div>
-                <button type="submit" name="submit" class="group relative flex w-80 justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2  duration-300 shadow-md shadow-green-400/50 ">
+                <button type="submit"  class="group relative flex w-80 justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2  duration-300 shadow-md shadow-green-400/50 ">
                     <span class="absolute inset-y-0 left-0 flex items-center pl-3">
                         <!-- Heroicon name: mini/lock-closed -->
                         <svg class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
