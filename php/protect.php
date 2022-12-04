@@ -1,9 +1,10 @@
-<?php
-    if(!isset($_SESSION)){
-    session_start();
-    }
+<?php require_once("./php/conexao.php");
+session_start();
+if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['password']) == true)) {
 
-    if(!isset($_SESSION['id'])){
-        //header("Location: ./login/index.php");
-    }
+  unset($_SESSION['email']);
+  unset($_SESSION['senha']);
+  header('Location: ./login/index.php');
+}
+$logado = $_SESSION['email'];
 ?>

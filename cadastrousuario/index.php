@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 include("../php/conexao.php");
 include("../php/registration.php");
 ?>
@@ -164,11 +164,6 @@ include("../php/registration.php");
         <div class="mb-6 w-9/12 m-auto">
           <label for="password" class="block mb-2 text-sm font-medium text-gray-900 ">Senha</label>
           <input type="password" id="password" name="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow " placeholder="•••••••••" required="">
-        </div>
-
-        <div class="mb-6 w-9/12 m-auto">
-          <label for="confirm_password" class="block mb-2 text-sm font-medium text-gray-900 ">Confirmar Senha</label>
-          <input type="password" id="confirm_password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow" placeholder="•••••••••" required="">
         </div>
 
         <div class="flex items-start mb-6 w-9/12 m-auto">

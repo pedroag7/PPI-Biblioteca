@@ -88,13 +88,13 @@ include_once("../php/conexao.php");
                   </div>
                 <div>
                     <label for="matricula" class="sr-only">Matricula</label>
-                    <input id="matricula" name="registration" type="text" required class=" block w-80 appearance-none
+                    <input id="matricula" name="matricula" type="text" required class=" block w-80 appearance-none
                           rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green-500 
                           focus:outline-none focus:ring-green-500 sm:text-sm drop-shadow italic" placeholder="Matricula">
                 </div>
                 <div>
                     <label for="CPF" class="sr-only">CPF</label>
-                    <input id="CPF" name="email" type="text" required class=" block w-80 appearance-none
+                    <input id="CPF" name="cpf" type="number" required class=" block w-80 appearance-none
                           rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green-500 
                           focus:outline-none focus:ring-green-500 sm:text-sm drop-shadow italic" placeholder="CPF">
                 </div>
@@ -108,10 +108,7 @@ include_once("../php/conexao.php");
                     <label for="password" class="sr-only">Password</label>
                     <input id="password" name="password" type="password" autocomplete="current-password" required class="block w-80 appearance-none  rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm drop-shadow italic" placeholder="Senha">
                 </div>
-                <div>
-                    <label for="password" class="sr-only">Password</label>
-                    <input id="password" name="password" type="password" autocomplete="current-password" required class="block w-80 appearance-none  rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm drop-shadow italic" placeholder="Confirme sua senha">
-                </div>
+                
             </div>
 
 

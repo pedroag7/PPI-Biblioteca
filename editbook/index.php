@@ -1,6 +1,6 @@
 <?php
 include_once('../php/conexao.php');
-//include_once('../php/edituser.php');
+require_once("./php/protect.php");
 session_start();
 if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['password']) == true)) {
 

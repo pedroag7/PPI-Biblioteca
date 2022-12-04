@@ -1,5 +1,5 @@
 <?php
-   session_start();
+   
     if (isset($_POST['submit']) && !empty ($_POST['email']) && !empty($_POST['password'])){
         
         include_once('../php/conexao.php');
@@ -16,9 +16,13 @@
             header('Location: ../login/index.php');
         }
         else{
-            //$user = $sql_query->fetch_assoc();
-            $_SESSION['email'] = $email;
-            $_SESSION['senha'] = $password;
+            $usuario = $result->fetch_assoc();
+            session_start();
+            $_SESSION['email'] = $usuario['email'];
+            //$_SESSION['senha'] = $password;
+            $_SESSION['name'] = $usuario['nameUser'];
+            $_SESSION['id'] = $usuario['id'];
+
             header('Location: ../index.php');
           
             

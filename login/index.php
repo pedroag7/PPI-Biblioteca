@@ -1,38 +1,5 @@
 <?php
-    require_once("../php/conexao.php");
-    if (isset($_POST['email']) || isset($_POST['senha'])){
-        if(strlen($_POST['email']) == 0 ){
-            echo "Preencha Seu Email";
-        }else if(strlen($_POST['senha']) == 0){
-            echo "Preencha Sua Senha";
-        } else{
-            $email = mysqli_real_escape_string($strcon, $_POST['email']);
-            $senha = mysqli_real_escape_string($strcon, $_POST['senha']);
-
-            $sqlcode = "SELECT * FROM users WHERE email = '$email' AND senha = '$senha'";
-            $sql_query = $strcon->query($sqlcode) or die ("Erro na execuçao da query");
-            $quantidade = $sql_query->num_rows;
-            
-            if($quantidade == 1 ){
-                $usuario = $sql_query->fetch_assoc();
-
-                if (!isset($_SESSION)){
-                    session_start();
-                }
-
-                $_SESSION['name'] = $usuario['nameUser'];
-                $_SESSION['id'] = $usuario['id'];
-
-                header("Location: ../index.php");
-                
-
-               
-            }else{
-                echo "Verifique seu email e senha";
-            }
-        }
-
-    }
+include_once("../php/conexao.php");
 
 ?>
 
@@ -70,21 +37,19 @@
     </script>
 </head>
 
-<body class=" font-roboto bg-gradient-to-r from-emerald-500 via-green-500 to-green-500 md:relative md:flex min-h-screen max-w-xl  ">
+<body class=" font-roboto bg-gradient-to-r from-emerald-500 via-green-500 to-green-500 relative flex  ">
 
-<div class="md:absolute md:right-16 flex my-auto">
-        <img src="img2.png" alt="Logo IFF" class="  md:visible md:mr-56 md:mt-32 md:h-52 md:w-40 2xl:mt-52 2xl:mr-96 ml-2 md:absolute right-16    h-20  w-16 ">
-        <h2 class="  text-xl my-auto  italic font-thin text-right tracking-tight text-slate-50 md:hidden "> Instituto Federal Farroupilha </h2>
-    </div> 
+    <div>
+        <img src="img2.png" alt="Logo IFF" class=" flex  absolute right-16 mr-56 mt-32 h-52 w-40 2xl:mt-52 2xl:mr-96 ">
+    </div>
+    <div class=" bg-slate-50 mt-16 my-auto 2xl:mt-36 ml-32 2xl:ml-48  border-1 rounded-xl px-16 py-32  ">
 
-    <div class=" bg-slate-50 md:mt-auto  md:my-auto 2xl:mt-36 md:ml-32 2xl:ml-48 rounded-xl md:px-10 md:py-32 py-8 px-8 mt-10 max-w-xl  ">
-
-        <h1 class=" text-center text-5xl font-bold font-thin  tracking-tight  text-black">Seja Bem Vindo</h1>
+        <h2 class=" text-center text-5xl font-bold font-thin  tracking-tight text-black">Seja Bem Vindo</h2>
         <p class="mt-2  text-center italic text-sm text-gray-600">
             Biblioteca Institucional do Instituto Federal Farroupilha
         </p>
 
-        <form class=" space-y-6" action="" method="POST">
+        <form class="  mx-auto space-y-6   " action="../php/loginconfig.php" method="POST">
             <input type="hidden" name="remember" value="true">
             <div class="-space-y-px rounded-md ">
                 <div>
@@ -96,28 +61,27 @@
                 <br>
                 <div>
                     <label for="password" class="sr-only">Password</label>
-                    <input id="password" name="senha" type="password" autocomplete="current-password" required class="block w-80 appearance-none  rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm drop-shadow italic" placeholder="Senha">
+                    <input id="password" name="password" type="password" autocomplete="current-password" required class="block w-80 appearance-none  rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm drop-shadow italic" placeholder="Senha">
                 </div>
             </div>
 
             <div class="flex items-center justify-between">
-                <div class="text-sm">
-                <a href="./signup.php" class="font-medium text-green-600 hover:text-green-500">Nao possui cadastro?</a>
+                <div class="flex items-center">
+                    <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                    <label for="remember-me" class="ml-2 block text-sm text-gray-900">Lembrar-me</label>
                 </div>
 
                 <div class="text-sm">
-                    <a href="#" class="font-medium text-red-600 hover:text-red-500">Esqueceu sua senha?</a>
+                    <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Esqueceu sua senha?</a>
                 </div>
             </div>
 
             <div>
-                <?php if (isset($_POST['submit']) && ($result < 1)) {
-                    echo ('<p class="text-sm text-red-400 font-light text-center mt-4">Email ou senha incorrentos</p>');
-                } ?>
+               
             </div>
 
             <div>
-                <button type="submit"  class="group relative flex w-80 justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2  duration-300 shadow-md shadow-green-400/50 ">
+                <button type="submit" name="submit" class="group relative flex w-80 justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2  duration-300 shadow-md shadow-green-400/50 ">
                     <span class="absolute inset-y-0 left-0 flex items-center pl-3">
                         <!-- Heroicon name: mini/lock-closed -->
                         <svg class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">

@@ -1,21 +1,8 @@
 <?php
-include_once('./php/conexao.php');
-include_once('./php/protect.php');
+require_once("./php/conexao.php");
+require_once("./php/protect.php");
 
-
-
-/*if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['password']) == true)) {
-
-  unset($_SESSION['email']);
-  unset($_SESSION['senha']);
-  header('Location: ./login/index.php');
-}
-$logado = $_SESSION['email'];
-*/
-
-//$name = $_SESSION['name']
 ?>
-
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -111,11 +98,10 @@ $logado = $_SESSION['email'];
 
     <!--Main-->
     <div class="p-3  pt-5 max-w-screen-xl mx-auto text-gray-500">
-      
-    <h1 class="md:text-xl text-left md:pl-24 pl-16 text-xl text-green-500  "> Bem vindo <?php echo $_SESSION['name']; ?>, tenha um ótimo dia!</h1>
+
+      <h1 class="md:text-xl text-left md:pl-24 pl-16 text-xl text-green-500  "> Bem vindo <?php echo $_SESSION['name']; ?>, tenha um ótimo dia!</h1>
       <p class=" text-left md:pl-24 pl-16 md:text-2xl text-xl italic font-bold ">Ficçao cientifica:</p>
-      <p class=" text-left md:pl-24 pl-16 md:text-2xl text-xl italic font-bold "> <?php //echo $name; 
-                                                                                  ?> </p>
+      
 
       <br>
 

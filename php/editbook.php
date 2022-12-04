@@ -18,9 +18,9 @@
         $disponibility = $_POST['disponibility'];
         $synopses = $_POST['synopses'];
     
-        if(!$path_cover = img($_FILES['imagem'], "cover")){
+        /*if(!$path_cover = img($_FILES['imagem'], "cover")){
             die("Arquivo Invalido");
-        }
+        }*/
 
         $sqlinsert = mysqli_query($strcon, "UPDATE obra SET title='$title', subtitle='$subtitle', author='$author', category='$category', publicationDate='$publishyear', publishCompany='$company', codObra='$codbook', translator='$translator', publishLocation='$publishlocal', seriesISBN='$isbn', cover='$path_cover', physicalDescription='$descphysic', disponibility='$disponibility', synopses='$synopses'   WHERE idObra='$idObra'");
 

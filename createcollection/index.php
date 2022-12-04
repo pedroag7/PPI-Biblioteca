@@ -1,5 +1,6 @@
 <?php
-    session_start();
+    require_once("./php/protect.php");
+    
 ?>
 
 <!DOCTYPE html>

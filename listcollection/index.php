@@ -1,14 +1,6 @@
 <?php
 require_once('../php/conexao.php');
-//include_once('../php/edituser.php');
-session_start();
-if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['password']) == true)) {
-
-    unset($_SESSION['email']);
-    unset($_SESSION['senha']);
-    header('Location: ./login/index.php');
-}
-
+require_once("./php/protect.php");
 $sql = "SELECT * FROM collection ORDER BY typeCollection DESC";
 $result = $strcon->query($sql)
 

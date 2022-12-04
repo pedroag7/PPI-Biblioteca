@@ -1,4 +1,5 @@
 <?php
+require_once("./php/protect.php");
 if (!empty($_GET['id'])) {
     include_once('../php/conexao.php');
     $id = $_GET['id'];
@@ -116,7 +117,7 @@ if (!empty($_GET['id'])) {
         <div class=" px-3 pt-5 md:max-w-screen-xl  mx-auto text-gray-500 divide-y ">
             <div class=" mx-auto  item-center flex">
                 <div class="mx-auto flex pt-8 pb-2  text-right">
-                    <img src="<?php echo $cover; ?>" alt="Livro Duna" class=" md:mr-10 mr-4 rounded-lg drop-shadow md:w-48 md:h-72 w-32 h-48 object-cover">
+                    <img src="<?php echo $cover; ?>" alt="Livro Duna" class=" md:mr-8 mr-4 rounded-lg drop-shadow md:w-48 md:h-72 w-32 h-48 object-cover">
                     <div class="text-left md:max-w-2xl max-w-md  md:break-words	 md:text-2sm tex-xs pt-1 ">
                         <h1 class=" md:text-4xl text-2xl text-slate-800 uppercase"><?php echo $title; ?></h1>
 

@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once('conexao.php');
-//require_once $_SERVER['DOCUMENT_ROOT'] . "/ppi-biblioteca/php/imgFunc.php";
+
 
 
 if (isset($_POST['submit'])) {

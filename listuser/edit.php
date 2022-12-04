@@ -1,5 +1,5 @@
 <?php
-//include("../php/editsuser.php");
+require_once("./php/protect.php");
 if (!empty($_GET['id'])) {
   include_once('../php/conexao.php');
   $id = $_GET['id'];
