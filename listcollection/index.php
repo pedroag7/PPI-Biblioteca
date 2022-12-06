@@ -1,6 +1,9 @@
 <?php
 require_once('../php/conexao.php');
-require_once("./php/protect.php");
+require_once("../php/protect.php");
+if ($_SESSION['userLevel'] != 'administrator') {
+    header('Location: ../index.php');   
+}
 $sql = "SELECT * FROM collection ORDER BY typeCollection DESC";
 $result = $strcon->query($sql)
 

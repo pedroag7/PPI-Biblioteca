@@ -1,32 +1,12 @@
 <?php
-require_once("../php/protect.php");
-if (!empty($_GET['id'])) {
     include_once('../php/conexao.php');
-    $id = $_GET['id'];
-    $sql = "SELECT * FROM obra WHERE idObra=$id";
-    $result = $strcon->query($sql);
+        if (isset($_GET['submit'])) {
+           $search = mysqli_real_escape_string($strcon, $_GET['search']);
+           $sql_search = mysqli_query($strcon, "SELECT * FROM obra WHERE title LIKE '%$search%' OR author LIKE '%$search%' OR subtitle LIKE '%$search%'");
 
-    if ($result->num_rows > 0) {
-        while ($obra_data = mysqli_fetch_assoc($result)) {
-            $id = $obra_data['idObra'];
-            $title = $obra_data['title'];
-            $subtitle = $obra_data['subtitle'];
-            $autor = $obra_data['author'];
-            $category = $obra_data['category'];
-            $cover = $obra_data['cover'];
-            $company = $obra_data['publishCompany'];
-            $translator = $obra_data['translator'];
-            $desc = $obra_data['physicalDescription'];
-            $disponi = $obra_data['disponibility'];
-            $synopses = $obra_data['synopses'];
         }
-    } else {
-        header('Location: ./index.php');
-    }
-}
-
+    
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -36,8 +16,9 @@ if (!empty($_GET['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
-    <title> <?php echo $title ?></title>
-    <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
+    <script src="swiper.js"></script>
+    <title>Lista de usuarios</title>
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
@@ -60,9 +41,10 @@ if (!empty($_GET['id'])) {
 </head>
 
 <body class="font-roboto">
-    <div class=" max-w-screen-7xl min-h-screen bg-white ">
+    <div class="w-full min-h-screen bg-white ">
+
         <header class="w-full bg-green-600 p-3 drop-shadow shadow-sm  text-white ">
-            <div class=" max-w-screen-xl  w-full mx-auto flex justify-between gap-x-2 drop-shadow  ">
+            <div class="max-w-screen-xl w-full mx-auto flex justify-between  gap-x-2 drop-shadow ">
                 <h1 class=" w-7 ">
                     <a href=""> <img src="../img/logo.png" class="drop-shadow"></a>
                 </h1>
@@ -114,45 +96,69 @@ if (!empty($_GET['id'])) {
             </div>
         </header>
 
-        <div class=" px-3 pt-5 md:max-w-screen-xl  mx-auto text-gray-500 divide-y ">
-            <div class=" mx-auto  item-center flex">
-                <div class="mx-auto flex pt-8 pb-2  text-right">
-                    <img src="<?php echo $cover; ?>" alt="Livro Duna" class=" md:mr-8 mr-4 rounded-lg drop-shadow md:w-48 md:h-72 w-32 h-48 object-cover">
-                    <div class="text-left md:max-w-2xl max-w-md  md:break-words	 md:text-2sm tex-xs pt-1 ">
-                        <h1 class=" md:text-4xl text-2xl text-slate-800 uppercase"><?php echo $title; ?></h1>
+        <div class="p-3  pt-10 max-w-screen-xl mx-auto text-gray-500 ">
+            <div class=" m-auto m-0 ">
 
-                        <p class="break-words  "><?php echo $synopses; ?> </p>
-                        <br>
+                <div class="overflow-x-auto  shadow-md sm:rounded-lg">
+                    <table class="w-full text-sm text-left text-gray-500 ">
 
-                        <p class="italic"> Disponibilidade: <strong> <?php echo $disponi; ?> </strong> </p>
-                        <p class="italic"> Autor: <strong> <?php echo $autor; ?> </strong></p>
-                        <p class="italic"> Numero de paginas: <strong> <?php echo $desc; ?> </strong> </p>
-                        <p class="italic"> Editora: <strong> <?php echo $company; ?> </strong> </p>
-                        <p class="italic"> Tradutora: <strong> <?php echo $translator; ?> </strong> </p>
-                    </div>
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
+                            <tr>
+                                <th scope="col" class="py-3 px-6">
+                                    Titulo
+                                </th>
+                                <th scope="col" class="py-3 px-6">
+                                    Acervo
+                                </th>
+                                <th scope="col" class="py-3 px-6">
+                                    Editora
+                                </th>
+                                <th scope="col" class="py-3 px-6">
+                                    Autor
+                                </th>
+                                <th scope="col" class="py-3 px-6">
+                                    Editora
+                                </th>
+                                <th scope="col" class="py-3 px-6">
+                                    Disponibilidade
+                                </th>
 
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <?php
+                            while ($result = mysqli_fetch_assoc($sql_search)) {
+                                echo ('<tr class="bg-white border-b  ">' .
+                                    '<th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap flex ">' .
+                                    '<span class="my-auto"> ' . $result['title'] . '</span>' . '<img src="' . $result['cover'] . '" class=" ml-2 w-20 ">' .
+                                    '</th>' .
+                                    '<td class="py-4 px-6">' .
+                                    $result['idCollection'] .
+                                    '</td>' .
+                                    '.<td class="py-4 px-6">'
+                                    . $result['publishCompany'] .
+                                    '</td>'
+                                    . '<td class="py-4 px-6">'
+                                    . $result['author']
+                                    . '</td>' .
+                                    '<td class="py-4 px-6">'
+                                    . $result['publishCompany']
+                                    . '</td>' .
+                                    '<td class="py-4 px-6">'
+                                    . $result['disponibility']
+                                    . '</td>'.
+                                     
+                                    '</tr>"');
+                            }
+                            ?>
+                        </tbody>
+                    </table>
                 </div>
+
+
+
             </div>
-
-            <div>
-                <form class=" mt-4 p-2 md:mx-60 ">
-                    <div class="mb-4bg-gray-50 rounded-lg border  border-gray-200 drop-shadow shadow-md ">
-                        <div class="py-2 px-4  bg-white rounded-t-lg ">
-                            <label for="comment" class="sr-only">Comente Aqui</label>
-                            <textarea id="comment" rows="4" class="px-0 w-full   text-sm text-gray-900 bg-white border-0 " placeholder="Deixe seu comentario aqui!" required=""></textarea>
-                        </div>
-                        <div class="py-2 px-3 border-t ">
-                            <button type="submit" class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-green-500 rounded-lg focus:ring-2 focus:ring-green-200  ease-in duration-150 hover:bg-green-700 ">
-                                Postar Comentario
-                            </button>
-
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-
-
         </div>
         <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
 </body>

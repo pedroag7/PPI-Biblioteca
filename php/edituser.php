@@ -10,8 +10,9 @@ include_once('conexao.php');
         $cpf = mysqli_real_escape_string($strcon, $_POST['cpf']);
         $email = mysqli_real_escape_string($strcon, $_POST['email']);
         $password = mysqli_real_escape_string($strcon, $_POST['password']);
+        $level = $_POST['level']; 
 
-        $sqlinsert = mysqli_query($strcon, "UPDATE users SET nameUser='$name', lastname='$lastname', course='$course', registration='$registration', catUser='$catuser', cpf='$cpf', email='$email', senha='$password'  WHERE idUser='$iduser'");
+        $sqlinsert = mysqli_query($strcon, "UPDATE users SET nameUser='$name', lastname='$lastname', course='$course', registration='$registration', catUser='$catuser', cpf='$cpf', email='$email', senha='$password', userLevel='$level'  WHERE idUser='$iduser'");
 
 
 

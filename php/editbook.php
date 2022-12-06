@@ -17,6 +17,7 @@
         $descphysic = $_POST['descphysic'];
         $disponibility = $_POST['disponibility'];
         $synopses = $_POST['synopses'];
+        
     
         /*if(!$path_cover = img($_FILES['imagem'], "cover")){
             die("Arquivo Invalido");

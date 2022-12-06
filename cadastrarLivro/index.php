@@ -1,5 +1,8 @@
 <?php
-    require_once("./php/protect.php");
+    require_once("../php/protect.php");
+    if ($_SESSION['userLevel'] != 'administrator') {
+        header('Location: ../index.php');   
+    }
 ?>
 
 <!DOCTYPE html>

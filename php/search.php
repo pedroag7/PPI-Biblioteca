@@ -1,32 +1,15 @@
 <?php
-require_once("../php/protect.php");
-if (!empty($_GET['id'])) {
-    include_once('../php/conexao.php');
-    $id = $_GET['id'];
-    $sql = "SELECT * FROM obra WHERE idObra=$id";
-    $result = $strcon->query($sql);
+    include_once('conexao.php');
+        if (isset($_GET['submit'])) {
+           $search = mysqli_real_escape_string($strcon, $_GET['search']);
+           $sql_search = mysqli_query($strcon, "SELECT * FROM obra WHERE title LIKE '%$search%' OR author LIKE '%$search%' OR subtitle LIKE '%$search%'");
 
-    if ($result->num_rows > 0) {
-        while ($obra_data = mysqli_fetch_assoc($result)) {
-            $id = $obra_data['idObra'];
-            $title = $obra_data['title'];
-            $subtitle = $obra_data['subtitle'];
-            $autor = $obra_data['author'];
-            $category = $obra_data['category'];
-            $cover = $obra_data['cover'];
-            $company = $obra_data['publishCompany'];
-            $translator = $obra_data['translator'];
-            $desc = $obra_data['physicalDescription'];
-            $disponi = $obra_data['disponibility'];
-            $synopses = $obra_data['synopses'];
+           if(mysqli_num_rows($result) < 1){
+            
         }
-    } else {
-        header('Location: ./index.php');
-    }
-}
-
+        }
+    
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -36,8 +19,9 @@ if (!empty($_GET['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
-    <title> <?php echo $title ?></title>
-    <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
+    <script src="swiper.js"></script>
+    <title>Lista de usuarios</title>
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
@@ -60,9 +44,10 @@ if (!empty($_GET['id'])) {
 </head>
 
 <body class="font-roboto">
-    <div class=" max-w-screen-7xl min-h-screen bg-white ">
+    <div class="w-full min-h-screen bg-white ">
+
         <header class="w-full bg-green-600 p-3 drop-shadow shadow-sm  text-white ">
-            <div class=" max-w-screen-xl  w-full mx-auto flex justify-between gap-x-2 drop-shadow  ">
+            <div class="max-w-screen-xl w-full mx-auto flex justify-between  gap-x-2 drop-shadow ">
                 <h1 class=" w-7 ">
                     <a href=""> <img src="../img/logo.png" class="drop-shadow"></a>
                 </h1>
@@ -114,45 +99,79 @@ if (!empty($_GET['id'])) {
             </div>
         </header>
 
-        <div class=" px-3 pt-5 md:max-w-screen-xl  mx-auto text-gray-500 divide-y ">
-            <div class=" mx-auto  item-center flex">
-                <div class="mx-auto flex pt-8 pb-2  text-right">
-                    <img src="<?php echo $cover; ?>" alt="Livro Duna" class=" md:mr-8 mr-4 rounded-lg drop-shadow md:w-48 md:h-72 w-32 h-48 object-cover">
-                    <div class="text-left md:max-w-2xl max-w-md  md:break-words	 md:text-2sm tex-xs pt-1 ">
-                        <h1 class=" md:text-4xl text-2xl text-slate-800 uppercase"><?php echo $title; ?></h1>
+        <div class="p-3  pt-10 max-w-screen-xl mx-auto text-gray-500 ">
+            <div class=" m-auto m-0 ">
 
-                        <p class="break-words  "><?php echo $synopses; ?> </p>
-                        <br>
+                <div class="overflow-x-auto  shadow-md sm:rounded-lg">
+                    <table class="w-full text-sm text-left text-gray-500 ">
 
-                        <p class="italic"> Disponibilidade: <strong> <?php echo $disponi; ?> </strong> </p>
-                        <p class="italic"> Autor: <strong> <?php echo $autor; ?> </strong></p>
-                        <p class="italic"> Numero de paginas: <strong> <?php echo $desc; ?> </strong> </p>
-                        <p class="italic"> Editora: <strong> <?php echo $company; ?> </strong> </p>
-                        <p class="italic"> Tradutora: <strong> <?php echo $translator; ?> </strong> </p>
-                    </div>
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
+                            <tr>
+                                <th scope="col" class="py-3 px-6">
+                                    Titulo
+                                </th>
+                                <th scope="col" class="py-3 px-6">
+                                    Acervo
+                                </th>
+                                <th scope="col" class="py-3 px-6">
+                                    Editora
+                                </th>
+                                <th scope="col" class="py-3 px-6">
+                                    Autor
+                                </th>
+                                <th scope="col" class="py-3 px-6">
+                                    Id
+                                </th>
+                                <th scope="col" class="py-3 px-6">
+                                    Editar
+                                </th>
 
+                                <th scope="col" class="py-3 px-6">
+                                    Deletar
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <?php
+                            while ($user_data = mysqli_fetch_assoc($result)) {
+                                echo ('<tr class="bg-white border-b  ">' .
+                                    '<th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap flex ">' .
+                                    '<span class="my-auto"> ' . $user_data['title'] . '</span>' . '<img src="' . $user_data['cover'] . '" class=" ml-2 w-20 ">' .
+                                    '</th>' .
+                                    '<td class="py-4 px-6">' .
+                                    $user_data['idCollection'] .
+                                    '</td>' .
+                                    '.<td class="py-4 px-6">'
+                                    . $user_data['publishCompany'] .
+                                    '</td>'
+                                    . '<td class="py-4 px-6">'
+                                    . $user_data['author']
+                                    . '</td>' .
+                                    '<td class="py-4 px-6">'
+                                    . $user_data['idObra']
+                                    . '</td>' .
+                                    '<td class="py-4 px-4">' .
+                                    '<a href="./edit.php?id=' . $user_data['idObra'] . '"
+                                        class=" flex  rounded-lg  text-center  hover:bg-green-600 hover:text-white duration-200 ease-in-out font-medium text-green-600 hover:underline  "><svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-6 w-6 " fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                      </svg></a>' .
+                                    '</td>' .
+                                    '<td class="py-4 px-4">' .
+                                    '<a href="../php/deletebook.php?id=' . $user_data['idObra'] . '"
+                                        class=" flex  rounded-lg  text-center  hover:bg-red-600 hover:text-white duration-200 ease-in-out font-medium text-red-600 hover:underline  "><svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-6 w-6" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256"><path fill="currentColor" d="M216 48h-40v-8a24.1 24.1 0 0 0-24-24h-48a24.1 24.1 0 0 0-24 24v8H40a8 8 0 0 0 0 16h8v144a16 16 0 0 0 16 16h128a16 16 0 0 0 16-16V64h8a8 8 0 0 0 0-16ZM96 40a8 8 0 0 1 8-8h48a8 8 0 0 1 8 8v8H96Zm96 168H64V64h128Zm-80-104v64a8 8 0 0 1-16 0v-64a8 8 0 0 1 16 0Zm48 0v64a8 8 0 0 1-16 0v-64a8 8 0 0 1 16 0Z"/></svg> </a>' .
+                                    '</td>' .
+                                    '</tr>"');
+                            }
+                            ?>
+                        </tbody>
+                    </table>
                 </div>
+
+
+
             </div>
-
-            <div>
-                <form class=" mt-4 p-2 md:mx-60 ">
-                    <div class="mb-4bg-gray-50 rounded-lg border  border-gray-200 drop-shadow shadow-md ">
-                        <div class="py-2 px-4  bg-white rounded-t-lg ">
-                            <label for="comment" class="sr-only">Comente Aqui</label>
-                            <textarea id="comment" rows="4" class="px-0 w-full   text-sm text-gray-900 bg-white border-0 " placeholder="Deixe seu comentario aqui!" required=""></textarea>
-                        </div>
-                        <div class="py-2 px-3 border-t ">
-                            <button type="submit" class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-green-500 rounded-lg focus:ring-2 focus:ring-green-200  ease-in duration-150 hover:bg-green-700 ">
-                                Postar Comentario
-                            </button>
-
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-
-
         </div>
         <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
 </body>

@@ -1,5 +1,8 @@
 <?php
-require_once("./php/protect.php");
+require_once("../php/protect.php");
+if ($_SESSION['userLevel'] != 'administrator') {
+  header('Location: ../index.php');
+}
 if (!empty($_GET['id'])) {
   include_once('../php/conexao.php');
   $id = $_GET['id'];
@@ -7,18 +10,18 @@ if (!empty($_GET['id'])) {
   $result = $strcon->query($sql);
 
   if ($result->num_rows > 0) {
-      while ($user_data = mysqli_fetch_assoc($result)) {
-          $id = $user_data['idUser'];
-          $nome = $user_data['nameUser'];
-          $sobrenome = $user_data['lastname'];
-          $curso = $user_data['course'];
-          $matricula = $user_data['registration'];
-          $categoria = $user_data['catUser'];
-          $cpff = $user_data['cpf'];
-          $emaill = $user_data['email'];
-          $senha = $user_data['senha'];
-      }
-  } else{
+    while ($user_data = mysqli_fetch_assoc($result)) {
+      $id = $user_data['idUser'];
+      $nome = $user_data['nameUser'];
+      $sobrenome = $user_data['lastname'];
+      $curso = $user_data['course'];
+      $matricula = $user_data['registration'];
+      $categoria = $user_data['catUser'];
+      $cpff = $user_data['cpf'];
+      $emaill = $user_data['email'];
+      $senha = $user_data['senha'];
+    }
+  } else {
     header('Location: ./index.php');
   }
 }
@@ -27,6 +30,7 @@ if (!empty($_GET['id'])) {
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -120,23 +124,23 @@ if (!empty($_GET['id'])) {
     <div class="p-3  pt-4 max-w-screen-xl mx-auto text-gray-500 ">
 
       <h1 class="text-2xl pb-2 text-center italic "> Cadastro de usuarios </h1>
-      
-      <div>
-      
-      
-      </div> 
-     
 
-      
       <div>
-      <?php /*if($_SESSION['user_exists'] ){
+
+
+      </div>
+
+
+
+      <div>
+        <?php /*if($_SESSION['user_exists'] ){
           echo ('<h1 class="text-red-500 mx-auto text-3xl text-center bold uppercase drop-shadow">CPF ja cadastrado no sistema!</h1>');
         }*/
         ?>
       </div>
-      
 
-      <form action="../php/edituser.php" method="POST"  class="border pl-4 pb-4 text-black border-1 rounded-lg shadow-sm w-9/12 items-center m-auto pt-2.5 ">
+
+      <form action="../php/edituser.php" method="POST" class="border pl-4 pb-4 text-black border-1 rounded-lg shadow-sm w-9/12 items-center m-auto pt-2.5 ">
         <div class="grid justify-center gap-6 mb-6 md:grid-cols-2 w-9/12 m-auto">
           <div>
             <label for="nome" class="block mb-2 text-sm font-medium text-gray-900 ">Nome</label>
@@ -149,7 +153,7 @@ if (!empty($_GET['id'])) {
           <div>
 
             <label for="curso" class="block mb-2 text-sm font-medium text-gray-900 ">Curso</label>
-            <select id="curso" name="course" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow ease-in duration-150 " >
+            <select id="curso" name="course" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow ease-in duration-150 ">
               <option selected><?php echo $curso; ?></option>
               <option value="info">Informatica</option>
               <option value="adm">Administraçao</option>
@@ -159,7 +163,7 @@ if (!empty($_GET['id'])) {
 
           <div>
             <label for="matricula" class=" block mb-2 text-sm font-medium text-gray-900">Matricula/SIAP</label>
-            <input type="number" id="matricula" name="matricula" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow"  value="<?php echo $matricula; ?>"  required="">
+            <input type="number" id="matricula" name="matricula" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow" value="<?php echo $matricula; ?>" required="">
           </div>
           <div>
             <label for="catU" class="block mb-2 text-sm font-medium text-gray-900 ">Categoria de usuario</label>
@@ -172,8 +176,34 @@ if (!empty($_GET['id'])) {
           <div>
 
             <label for="cpf" class="block mb-2 text-sm font-medium text-gray-900 ">CPF</label>
-            <input type="number" id="cpf" pattern="[0-9]{11}" name="cpf" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow " value="<?php echo $cpff; ?>" required=""  maxlength="11">
+            <input type="number" id="cpf" pattern="[0-9]{11}" name="cpf" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow " value="<?php echo $cpff; ?>" required="" maxlength="11">
           </div>
+
+          <div>
+            <h3 class="mb-2 text-gray-900 ">Nivel de usuario</h3>
+            <ul class="w-48 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 ">
+              <li class="w-full rounded-t-lg border-b border-gray-200 ">
+                <div class="flex items-center pl-3">
+                  <input id="list-radio-license" type="radio" value="normal" name="level" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 ">
+                  <label for="list-radio-license" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 ">Normal</label>
+                </div>
+              </li>
+              <li class="w-full rounded-t-lg border-b border-gray-200 ">
+                <div class="flex items-center pl-3">
+                  <input id="list-radio-id" type="radio" value="moderator" name="level" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 ">
+                  <label for="list-radio-id" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 ">Moderador</label>
+                </div>
+              </li>
+              <li class="w-full rounded-t-lg border-b border-gray-200 ">
+                <div class="flex items-center pl-3">
+                  <input id="list-radio-millitary" type="radio" value="administrator" name="level" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500  focus:ring-2 ">
+                  <label for="list-radio-millitary" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 ">Administrador</label>
+                </div>
+              </li>
+            
+            </ul>
+          </div>
+
         </div>
 
         <div class="mb-6 w-9/12 m-auto">
@@ -186,10 +216,6 @@ if (!empty($_GET['id'])) {
           <input type="password" id="password" name="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow " placeholder="•••••••••" required="">
         </div>
 
-        <div class="mb-6 w-9/12 m-auto">
-          <label for="confirm_password" class="block mb-2 text-sm font-medium text-gray-900 ">Confirmar Senha</label>
-          <input type="password" id="confirm_password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow" placeholder="•••••••••" required="">
-        </div>
 
         <div class="flex items-start mb-6 w-9/12 m-auto">
           <input type="hidden" name="id" value="<?php echo $id; ?>">

@@ -1,6 +1,9 @@
 <?php
 include_once('../php/conexao.php');
-require_once("./php/protect.php");
+require_once("../php/protect.php");
+if ($_SESSION['userLevel'] != 'administrator') {
+    header('Location: ../index.php');   
+}
 
 $sql = "SELECT * FROM users ORDER BY nameUser DESC";
 $result = $strcon->query($sql)
@@ -119,6 +122,9 @@ $result = $strcon->query($sql)
                                     Id
                                 </th>
                                 <th scope="col" class="py-3 px-6">
+                                    Nivel de usuario
+                                </th>
+                                <th scope="col" class="py-3 px-6">
                                     Editar
                                 </th>
 
@@ -146,6 +152,9 @@ $result = $strcon->query($sql)
                                     . '</td>' .
                                     '<td class="py-4 px-6">'
                                     . $user_data['idUser']
+                                    . '</td>' .
+                                    '<td class="py-4 px-6">'
+                                    . $user_data['userLevel']
                                     . '</td>' .
                                     '<td class="py-4 px-4">' .
                                     '<a href="./edit.php?id=' . $user_data['idUser'] . '"

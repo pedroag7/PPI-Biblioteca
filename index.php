@@ -50,7 +50,7 @@ require_once("./php/protect.php");
 
         <nav>
           <ul class=" flex gap-x-1  font-roboto">
-            <form class="flex items-center mx-auto" method="GET" action="">
+            <form class="flex items-center mx-auto" method="GET" action="./search/index.php">
               <label for="buscar" class="sr-only">Pesquisar</label>
               <div class="relative w-full">
                 <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
@@ -58,15 +58,16 @@ require_once("./php/protect.php");
                     <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
                   </svg>
                 </div>
-                <input type="search" id="buscar" class="bg-gray-50 mt-0.5 h-8 border border-slate-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 block w-full pl-10 p-2.5 placeholder:italic placeholder:text-slate-400 shadow-sm ease-in duration-150 focus:scale-105 " placeholder="Pesquisar livro" required="">
+                <input type="search"  id="buscar" name="search"  class="bg-gray-50 mt-0.5 h-8 border border-slate-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 block w-full pl-10 p-2.5 placeholder:italic placeholder:text-slate-400 shadow-sm ease-in duration-150 focus:scale-105 " placeholder="Pesquisar livro" required="">
               </div>
-              <button type="submit" class="p-1.5 ml-2 mt-0.5 text-sm font-medium text-white bg-gray-50 rounded-lg border border-slate-300   focus:ring-1 focus:outline-none focus:ring-sky-500 drop-shadow ease-in duration-150 hover:scale-105  ">
+              <button type="submit" name="submit" class="p-1.5 ml-2 mt-0.5 text-sm font-medium text-white bg-gray-50 rounded-lg border border-slate-300   focus:ring-1 focus:outline-none focus:ring-sky-500 drop-shadow ease-in duration-150 hover:scale-105  ">
                 <svg class="w-5 h-5 text-gray-900 " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                 </svg>
                 <span class="sr-only">Search</span>
               </button>
             </form>
+
             <div class="flex">
               <li class=""><a href="/ppi-biblioteca/index.php"> <svg xmlns="http://www.w3.org/2000/svg" width="50" height="32" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
@@ -84,9 +85,17 @@ require_once("./php/protect.php");
                   <li>
                     <a href="#" class="block py-2 px-4 hover:bg-gray-100 ">Perfil</a>
                   </li>
+                  <?php 
+                 if ($_SESSION['userLevel'] == 'administrator') {
+                  echo "<li>
+                  <a href=\"./controlpanel/index.php\" class=\"block py-2 px-4 hover:bg-gray-100 \">Painel de controle</a>
+                </li>" ;  
+              } 
+                 ?> 
                   <li>
                     <a href="./php/logout.php" class="block py-2 px-4 hover:bg-gray-100 ">Sair</a>
                   </li>
+                
                 </ul>
               </div>
             </div>
@@ -99,7 +108,7 @@ require_once("./php/protect.php");
     <!--Main-->
     <div class="p-3  pt-5 max-w-screen-xl mx-auto text-gray-500">
 
-      <h1 class="md:text-xl text-left md:pl-24 pl-16 text-xl text-green-500  "> Bem vindo <?php echo $_SESSION['name']; ?>, tenha um ótimo dia!</h1>
+      <h1 class="md:text-xl text-left md:pl-24 pl-16 text-xl text-green-500  "> Bem vindo <strong><?php echo $_SESSION['name']; ?></strong> , tenha um ótimo dia!</h1>
       <p class=" text-left md:pl-24 pl-16 md:text-2xl text-xl italic font-bold ">Ficçao cientifica:</p>
       
 

@@ -1,4 +1,5 @@
-<?php require_once("./php/conexao.php");
+<?php 
+
 session_start();
 if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['password']) == true)) {
 

@@ -1,7 +1,11 @@
 <?php
 
 include("../php/conexao.php");
+require_once("../php/protect.php");
 include("../php/registration.php");
+if ($_SESSION['userLevel'] != 'administrator') {
+  header('Location: ../index.php');   
+}
 ?>
 
 
