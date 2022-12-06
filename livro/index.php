@@ -135,14 +135,16 @@ if (!empty($_GET['id'])) {
             </div>
 
             <div>
-                <form class=" mt-4 p-2 md:mx-60 ">
+                <form class=" mt-4 p-2 md:mx-60 " action="../php/comments.php" method="POST">
                     <div class="mb-4bg-gray-50 rounded-lg border  border-gray-200 drop-shadow shadow-md ">
                         <div class="py-2 px-4  bg-white rounded-t-lg ">
                             <label for="comment" class="sr-only">Comente Aqui</label>
-                            <textarea id="comment" rows="4" class="px-0 w-full   text-sm text-gray-900 bg-white border-0 " placeholder="Deixe seu comentario aqui!" required=""></textarea>
+                            <textarea id="comment" name="comment" rows="4" class="px-0 w-full   text-sm text-gray-900 bg-white border-0 " placeholder="Deixe seu comentario aqui!" required=""></textarea>
                         </div>
                         <div class="py-2 px-3 border-t ">
-                            <button type="submit" class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-green-500 rounded-lg focus:ring-2 focus:ring-green-200  ease-in duration-150 hover:bg-green-700 ">
+                            <input type="hidden" name="idUser" value="<?php echo ($_SESSION['id']);  ?>">
+                            <input type="hidden" name="idObra" value="<?php echo $id?>">
+                            <button type="submit" name="submit" class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-green-500 rounded-lg focus:ring-2 focus:ring-green-200  ease-in duration-150 hover:bg-green-700 ">
                                 Postar Comentario
                             </button>
 

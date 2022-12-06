@@ -8,4 +8,6 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['password']) == t
   header('Location: ./login/index.php');
 }
 $logado = $_SESSION['email'];
+
+
 ?>

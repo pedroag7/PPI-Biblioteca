@@ -21,7 +21,7 @@
             $_SESSION['email'] = $usuario['email'];
             //$_SESSION['senha'] = $password;
             $_SESSION['name'] = $usuario['nameUser'];
-            $_SESSION['id'] = $usuario['id'];
+            $_SESSION['id'] = $usuario['idUser'];
             $_SESSION['userLevel'] = $usuario['userLevel'];
 
             header('Location: ../index.php');
