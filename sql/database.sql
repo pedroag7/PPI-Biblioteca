@@ -10,7 +10,7 @@ CREATE TABLE users(
     cpf VARCHAR (11)  NOT NULL,
     email VARCHAR (100) NOT NULL,
     senha VARCHAR (32) NOT NULL,
-    userLevel ENUM ('administrator','moderator', 'normal') DEFAULT ('normal'),
+    userLevel ENUM ('administrator','moderator', 'normal') DEFAULT 'normal',
     PRIMARY KEY (idUser)
 );
 
@@ -26,7 +26,7 @@ CREATE TABLE obra(
     idObra INT NOT NULL AUTO_INCREMENT,
     idCollection INT,
     title VARCHAR(100) NOT NULL,
-    subtitle VARCHAR(100) NOT NULL,
+    subtitle VARCHAR(100),
     author VARCHAR(50) NOT NULL,
     category VARCHAR(50) NOT NULL,
     publicationDate DATE NOT NULL,
@@ -48,6 +48,7 @@ CREATE TABLE comment(
     comment VARCHAR(600) NOT NULL,
     idUser INT NOT NULL,
     idObra INT NOT NULL,
+    aprroved BOOLEAN DEFAULT 'false',
     PRIMARY KEY(idComment),
     FOREIGN KEY (idUser) REFERENCES users(idUser),
     FOREIGN KEY (idObra) REFERENCES obra(idObra)

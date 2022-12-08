@@ -13,17 +13,26 @@
         $translator = $_POST['translator'];
         $publishlocal = $_POST['publishlocal'];
         $isbn = $_POST['isbn'];
-        $path_cover = $_FILES["imagem"]["cover"];
         $descphysic = $_POST['descphysic'];
         $disponibility = $_POST['disponibility'];
         $synopses = $_POST['synopses'];
         
-    
-        /*if(!$path_cover = img($_FILES['imagem'], "cover")){
-            die("Arquivo Invalido");
-        }*/
+        function saveCover()
+        {
+            $file = $_FILES['imagem']['name'];
+            $path = pathinfo($file);
+            $ext = $path['extension'];
+            $temp_name = $_FILES['imagem']['tmp_name'];
+            $permanent_name = uniqid() . "." . $ext;
+            $store_at = getcwd() . '/../img/covers/' . $permanent_name;
+            move_uploaded_file($temp_name, $store_at);
+            $cover = '../img/covers/' . $permanent_name;
+            return $cover;
+        }
 
-        $sqlinsert = mysqli_query($strcon, "UPDATE obra SET title='$title', subtitle='$subtitle', author='$author', category='$category', publicationDate='$publishyear', publishCompany='$company', codObra='$codbook', translator='$translator', publishLocation='$publishlocal', seriesISBN='$isbn', cover='$path_cover', physicalDescription='$descphysic', disponibility='$disponibility', synopses='$synopses'   WHERE idObra='$idObra'");
+        $cover = saveCover();
+
+        $sqlinsert = mysqli_query($strcon, "UPDATE obra SET title='$title', subtitle='$subtitle', author='$author', category='$category', publicationDate='$publishyear', publishCompany='$company', codObra='$codbook', translator='$translator', publishLocation='$publishlocal', seriesISBN='$isbn', cover='$cover', physicalDescription='$descphysic', disponibility='$disponibility', synopses='$synopses'   WHERE idObra='$idObra'");
 
 
 

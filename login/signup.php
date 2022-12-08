@@ -1,6 +1,5 @@
 <?php
 include_once("../php/conexao.php");
-
 ?>
 
 <!DOCTYPE html>
@@ -75,7 +74,7 @@ include_once("../php/conexao.php");
 
                 <div>
                     <label for="curso" class="block text-sm  text-gray-900 sr-only ">Curso</label>
-                    <select id="curso" name="course" class="bg-gray-white border border-gray-300 text-gray-500 text-sm rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 block w-80 px-3 py-2 drop-shadow ease-in duration-150 ">
+                    <select id="curso" name="course" required="" class="bg-gray-white border border-gray-300 text-gray-500 text-sm rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 block w-80 px-3 py-2 drop-shadow ease-in duration-150 ">
                       <option selected>Escolha seu curso</option>
                       <option value="TecInfo">Tec Informatica</option>
                       <option value="TecAdm">Tec Administraçao</option>
@@ -90,7 +89,7 @@ include_once("../php/conexao.php");
                     <label for="matricula" class="sr-only">Matricula</label>
                     <input id="matricula" name="matricula" type="text" required class=" block w-80 appearance-none
                           rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-green-500 
-                          focus:outline-none focus:ring-green-500 sm:text-sm drop-shadow italic" placeholder="Matricula">
+                          focus:outline-none focus:ring-green-500 sm:text-sm drop-shadow italic" placeholder="Matricula/SIAP">
                 </div>
                 <div>
                     <label for="CPF" class="sr-only">CPF</label>
@@ -120,6 +119,8 @@ include_once("../php/conexao.php");
                     </span>
                     Cadastre-se
                 </button>
+               
+                
             </div>
         </form>
     </div>

@@ -95,12 +95,19 @@ if (!empty($_GET['id'])) {
               <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow " data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 572px);">
                 <ul class="py-1 text-sm text-gray-700 " aria-labelledby="dropdownDefault">
                   <li>
-                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 ">Perfil</a>
+                  <a href="./profile/index.php?id=<?php echo $_SESSION['id']?>" class="block py-2 px-4 hover:bg-gray-100 ">Perfil</a>
                   </li>
                   <?php 
                  if ($_SESSION['userLevel'] == 'administrator') {
                   echo "<li>
                   <a href=\"../controlpanel/index.php\" class=\"block py-2 px-4 hover:bg-gray-100 \">Painel de controle</a>
+                </li>" ;  
+              } 
+                 ?> 
+                  <?php 
+                 if ($_SESSION['userLevel'] == 'administrator' or $_SESSION['userLevel'] == 'moderator' ) {
+                  echo "<li>
+                  <a href=\"../comments/index.php\" class=\"block py-2 px-4 hover:bg-gray-100 \">Aprovar Comentarios</a>
                 </li>" ;  
               } 
                  ?> 
@@ -118,7 +125,7 @@ if (!empty($_GET['id'])) {
     </header>
         <div class="p-3  pt-4 max-w-screen-xl mx-auto text-gray-500 ">
 
-            <h1 class="text-2xl pb-2 text-center italic "> CE de Obras </h1>
+            <h1 class="text-2xl pb-2 text-center italic ">Ediçao de Obras </h1>
 
             <form class=" border pl-4 pb-4 text-black border-1 rounded-lg shadow-sm w-9/12 items-center m-auto pt-2.5"  enctype="multipart/form-data" action="../php/editbook.php" method="POST">
                 <div class="grid justify-center gap-6 mb-6 md:grid-cols-2 w-9/12 m-auto">

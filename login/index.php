@@ -37,7 +37,7 @@ include_once("../php/conexao.php");
     </script>
 </head>
 
-<body class=" font-roboto bg-gradient-to-r from-emerald-500 via-green-500 to-green-500 relative flex  ">
+<body class=" font-roboto bg-gradient-to-r min-h-screen from-emerald-500 via-green-500 to-green-500 relative flex  ">
 
     <div>
         <img src="img2.png" alt="Logo IFF" class=" flex  absolute right-16 mr-56 mt-32 h-52 w-40 2xl:mt-52 2xl:mr-96 ">
@@ -49,7 +49,7 @@ include_once("../php/conexao.php");
             Biblioteca Institucional do Instituto Federal Farroupilha
         </p>
 
-        <form class="  mx-auto space-y-6   " action="../php/loginconfig.php" method="POST">
+        <form class=" space-y-6   " action="../php/loginconfig.php" method="POST">
             <input type="hidden" name="remember" value="true">
             <div class="-space-y-px rounded-md ">
                 <div>
@@ -66,13 +66,12 @@ include_once("../php/conexao.php");
             </div>
 
             <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                    <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                    <label for="remember-me" class="ml-2 block text-sm text-gray-900">Lembrar-me</label>
+                <div class="text-sm">
+                <a href="./signup.php" class="font-medium text-green-600 hover:text-green-500">Cadastre se aqui!</a>
                 </div>
 
                 <div class="text-sm">
-                    <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Esqueceu sua senha?</a>
+                    <a href="./forgotpass.php" class="font-medium text-red-600 hover:text-red-500">Esqueceu sua senha?</a>
                 </div>
             </div>
 

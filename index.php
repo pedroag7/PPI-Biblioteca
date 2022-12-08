@@ -83,8 +83,15 @@ require_once("./php/protect.php");
               <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow " data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 572px);">
                 <ul class="py-1 text-sm text-gray-700 " aria-labelledby="dropdownDefault">
                   <li>
-                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 ">Perfil</a>
+                    <a href="./profile/index.php?id=<?php echo $_SESSION['id']?>" class="block py-2 px-4 hover:bg-gray-100 ">Perfil</a>
                   </li>
+                  <?php 
+                 if ($_SESSION['userLevel'] == 'administrator' or $_SESSION['userLevel'] == 'moderator' ) {
+                  echo "<li>
+                  <a href=\"./comments/\" class=\"block py-2 px-4 hover:bg-gray-100 \">Aprovar Comentarios</a>
+                </li>" ;  
+              } 
+                 ?> 
                   <?php 
                  if ($_SESSION['userLevel'] == 'administrator') {
                   echo "<li>
@@ -108,7 +115,7 @@ require_once("./php/protect.php");
     <!--Main-->
     <div class="p-3  pt-5 max-w-screen-xl mx-auto text-gray-500">
 
-      <h1 class="md:text-xl text-left md:pl-24 ml-2 text-xl text-green-500  "> Bem vindo <strong><?php echo $_SESSION['name']; ?></strong> , tenha um ótimo dia!</h1>
+      <h1 class="md:text-xl text-left md:pl-24 ml-2 text-xl text-green-500  "> Bem vindo <strong><?php echo $_SESSION['name']; ?></strong>, tenha um ótimo dia!</h1>
       <p class=" text-left md:pl-24 pl-16 md:text-2xl pb-2 text-xl italic font-bold ">Ficçao cientifica:</p>
     
       <!-- Swiper -->
@@ -141,6 +148,30 @@ require_once("./php/protect.php");
         <div class="swiper-wrapper">
           <?php
           $sql = "SELECT * FROM obra WHERE category = 'Fantasia' ORDER BY title DESC LIMIT 18";
+          $result = $strcon->query($sql);
+
+          if ($result->num_rows > 0) {
+
+            while ($user_data = mysqli_fetch_assoc($result)) {
+              $idObra = $user_data['idObra'];
+              $capa = $user_data['cover'];
+
+              echo "<div class=\"swiper-slide\"> <a href=\"./livro/index.php?id=$idObra\"><img src=\"ppi-biblioteca/$capa\" class=\"w-32 h-24 rounded-lg object-cover \"></a></div>";
+            }
+          }
+          ?>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <h1 class=" text-left pt-4 md:pl-24 pl-16 pb-2 md:text-2xl text-xl italic font-bold ">Livros Tecnicos:</h1>
+
+      <div class=" swiper mySwiper">
+        <div class="swiper-wrapper">
+          <?php
+          $sql = "SELECT * FROM obra WHERE category = 'Tecnicos' ORDER BY title DESC LIMIT 18";
           $result = $strcon->query($sql);
 
           if ($result->num_rows > 0) {

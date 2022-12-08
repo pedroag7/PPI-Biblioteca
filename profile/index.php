@@ -1,8 +1,9 @@
 <?php
 require_once("../php/protect.php");
-if ($_SESSION['userLevel'] != 'administrator') {
-  header('Location: ../index.php');
+if ($_GET['id'] != $_SESSION['id']){
+    Header ("Location: ../");
 }
+
 if (!empty($_GET['id'])) {
   include_once('../php/conexao.php');
   $id = $_GET['id'];
@@ -132,11 +133,10 @@ if (!empty($_GET['id'])) {
         </nav>
       </div>
     </header>
-
     <!-- Main -->
     <div class="p-3  pt-4 max-w-screen-xl mx-auto text-gray-500 ">
 
-      <h1 class="text-2xl pb-2 text-center italic "> Atualizar </h1>
+      <h1 class="text-2xl pb-2 text-center italic "> Perfil de usuario </h1>
 
       <div>
 
@@ -196,31 +196,6 @@ if (!empty($_GET['id'])) {
             <input type="number" id="cpf" pattern="[0-9]{11}" name="cpf" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow " value="<?php echo $cpff; ?>" required="" maxlength="11">
           </div>
 
-          <div>
-            <h3 class="mb-2 text-gray-900 ">Nivel de usuario</h3>
-            <ul class="w-48 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 ">
-              <li class="w-full rounded-t-lg border-b border-gray-200 ">
-                <div class="flex items-center pl-3">
-                  <input id="list-radio-license" type="radio" value="normal" name="level" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 ">
-                  <label for="list-radio-license" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 ">Normal</label>
-                </div>
-              </li>
-              <li class="w-full rounded-t-lg border-b border-gray-200 ">
-                <div class="flex items-center pl-3">
-                  <input id="list-radio-id" type="radio" value="moderator" name="level" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 ">
-                  <label for="list-radio-id" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 ">Moderador</label>
-                </div>
-              </li>
-              <li class="w-full rounded-t-lg border-b border-gray-200 ">
-                <div class="flex items-center pl-3">
-                  <input id="list-radio-millitary" type="radio" value="administrator" name="level" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500  focus:ring-2 ">
-                  <label for="list-radio-millitary" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 ">Administrador</label>
-                </div>
-              </li>
-            
-            </ul>
-          </div>
-
         </div>
 
         <div class="mb-6 w-9/12 m-auto">
@@ -230,13 +205,13 @@ if (!empty($_GET['id'])) {
 
         <div class="mb-6 w-9/12 m-auto">
           <label for="password" class="block mb-2 text-sm font-medium text-gray-900 ">Senha</label>
-          <input type="password" id="password" name="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow " placeholder="•••••••••" required="">
+          <input type="password" id="password" name="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow " value="<?php echo $senha?>" required="">
         </div>
 
 
         <div class="flex items-start mb-6 w-9/12 m-auto">
           <input type="hidden" name="id" value="<?php echo $id; ?>">
-          <button type="update" id="update" name="update" class="text-white bg-green-500 justify-center hover:bg-green-800 focus:ring-2 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center shadow-sm shadow-green-400/50 justify-center ease-in-out duration-200 ">Cadastrar</button>
+          <button type="update" id="update" name="update" class="text-white bg-green-500 justify-center hover:bg-green-800 focus:ring-2 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center shadow-sm shadow-green-400/50 justify-center ease-in-out duration-200 ">Atualizar</button>
       </form>
 
 

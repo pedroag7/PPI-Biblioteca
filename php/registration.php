@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
     $catuser = mysqli_real_escape_string($strcon, $_POST['catuser']);
     $cpf = mysqli_real_escape_string($strcon, $_POST['cpf']);
     $email = mysqli_real_escape_string($strcon, $_POST['email']);
-    $password = mysqli_real_escape_string($strcon, $_POST['password']);
+    $password = mysqli_real_escape_string($strcon, md5($_POST['password']));
 
     $sql = "select count(*) as total from users where cpf = '$cpf'";
     $result = mysqli_query($strcon, $sql);

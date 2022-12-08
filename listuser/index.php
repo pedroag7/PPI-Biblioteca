@@ -86,12 +86,19 @@ $result = $strcon->query($sql)
               <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow " data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 572px);">
                 <ul class="py-1 text-sm text-gray-700 " aria-labelledby="dropdownDefault">
                   <li>
-                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 ">Perfil</a>
+                  <a href="./profile/index.php?id=<?php echo $_SESSION['id']?>" class="block py-2 px-4 hover:bg-gray-100 ">Perfil</a>
                   </li>
                   <?php 
                  if ($_SESSION['userLevel'] == 'administrator') {
                   echo "<li>
                   <a href=\"../controlpanel/index.php\" class=\"block py-2 px-4 hover:bg-gray-100 \">Painel de controle</a>
+                </li>" ;  
+              } 
+                 ?> 
+                  <?php 
+                 if ($_SESSION['userLevel'] == 'administrator' or $_SESSION['userLevel'] == 'moderator' ) {
+                  echo "<li>
+                  <a href=\"../comments/index.php\" class=\"block py-2 px-4 hover:bg-gray-100 \">Aprovar Comentarios</a>
                 </li>" ;  
               } 
                  ?> 

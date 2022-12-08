@@ -84,12 +84,19 @@ if ($_SESSION['userLevel'] != 'administrator') {
               <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow " data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 572px);">
                 <ul class="py-1 text-sm text-gray-700 " aria-labelledby="dropdownDefault">
                   <li>
-                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 ">Perfil</a>
+                  <a href="./profile/index.php?id=<?php echo $_SESSION['id']?>" class="block py-2 px-4 hover:bg-gray-100 ">Perfil</a>
                   </li>
                   <?php 
                  if ($_SESSION['userLevel'] == 'administrator') {
                   echo "<li>
                   <a href=\"../controlpanel/index.php\" class=\"block py-2 px-4 hover:bg-gray-100 \">Painel de controle</a>
+                </li>" ;  
+              } 
+                 ?> 
+                  <?php 
+                 if ($_SESSION['userLevel'] == 'administrator' or $_SESSION['userLevel'] == 'moderator' ) {
+                  echo "<li>
+                  <a href=\"../comments/index.php\" class=\"block py-2 px-4 hover:bg-gray-100 \">Aprovar Comentarios</a>
                 </li>" ;  
               } 
                  ?> 
@@ -140,10 +147,13 @@ if ($_SESSION['userLevel'] != 'administrator') {
 
             <label for="curso" class="block mb-2 text-sm font-medium text-gray-900 ">Curso</label>
             <select id="curso" name="course" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-green-500 focus:border-green-500 block w-full p-2.5 drop-shadow ease-in duration-150 ">
-              <option selected>Escolha uma categoria</option>
-              <option value="info">Informatica</option>
-              <option value="adm">Administraçao</option>
-              <option value="agro">Agropecuaria</option>
+            <option value="TecInfo">Tec Informatica</option>
+                      <option value="TecAdm">Tec Administraçao</option>
+                      <option value="TecAgro">Tec Agro</option>
+                      <option value="bComputaçao">Bacharelado Ciencia Da Computação</option>
+                      <option value="bMedVet">Bacharelado Medicina Veterinaria</option>
+                      <option value="lMatematica">Licenciatura Matematica</option>
+                      <option value="bAdm">Bacharelado ADM</option>
             </select>
           </div>
 

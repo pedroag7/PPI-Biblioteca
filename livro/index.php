@@ -103,12 +103,19 @@ if (!empty($_GET['id'])) {
               <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow " data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 572px);">
                 <ul class="py-1 text-sm text-gray-700 " aria-labelledby="dropdownDefault">
                   <li>
-                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 ">Perfil</a>
+                  <a href="./profile/index.php?id=<?php echo $_SESSION['id']?>" class="block py-2 px-4 hover:bg-gray-100 ">Perfil</a>
                   </li>
                   <?php 
                  if ($_SESSION['userLevel'] == 'administrator') {
                   echo "<li>
                   <a href=\"../controlpanel/index.php\" class=\"block py-2 px-4 hover:bg-gray-100 \">Painel de controle</a>
+                </li>" ;  
+              } 
+                 ?> 
+                  <?php 
+                 if ($_SESSION['userLevel'] == 'administrator' or $_SESSION['userLevel'] == 'moderator' ) {
+                  echo "<li>
+                  <a href=\"../comments/index.php\" class=\"block py-2 px-4 hover:bg-gray-100 \">Aprovar Comentarios</a>
                 </li>" ;  
               } 
                  ?> 
@@ -165,6 +172,36 @@ if (!empty($_GET['id'])) {
                 </form>
             </div>
 
+            <?php
+            include_once("../php/conexao.php");
+            $id = $_GET['id'];
+            $sqlinner = "SELECT * FROM comment INNER JOIN obra ON comment.idObra = obra.idObra INNER JOIN users ON comment.idUser = users.idUser WHERE approved = '1' AND comment.idObra='$id'";
+
+            $resultt = $strcon->query($sqlinner);
+  
+            if ($resultt->num_rows > 0) {
+  
+              while ($comment_data = mysqli_fetch_assoc($resultt)) {
+                $user = $comment_data['nameUser'];
+                $comment = $comment_data['comment'];
+  
+                echo "<div class=\"mt-4 p-2 md:mx-60\">
+                <div class=\"mb-4bg-gray-50 rounded-lg border  border-gray-200 drop-shadow shadow-md \">
+                            <div class=\"py-2 px-4  bg-white rounded-t-lg \">
+                            <div class=\"py-2 px-3 border-b \">
+                                <h1 class=\"inline-flex items-center  text-md font-medium text-center text-green-600  \">
+                                    $user
+                                </h1>
+                            </div>
+                                <label for=\"comment\" class=\"sr-only\">Comentario</label>
+                                <h1> $comment</h1>
+                            </div>
+                        </div>
+                </div>";
+              }
+            }
+            
+            ?>
 
 
         </div>

@@ -1,12 +1,17 @@
 <?php
-    include_once('../php/conexao.php');
-    require_once("../php/protect.php");
-        if (isset($_GET['submit'])) {
-           $search = mysqli_real_escape_string($strcon, $_GET['search']);
-           $sql_search = mysqli_query($strcon, "SELECT * FROM obra WHERE title LIKE '%$search%' OR author LIKE '%$search%' OR subtitle LIKE '%$search%'");
+include_once('../php/conexao.php');
+require_once("../php/protect.php");
+if ($_SESSION['userLevel'] == 'administrator' OR $_SESSION['userLevel'] == 'moderator' ) {
+  
+} else{
+  header("Location: ../");
+}
 
-        }
-    
+
+
+$sql = "SELECT * FROM ((comment INNER JOIN obra ON comment.idObra = obra.idObra)INNER JOIN users ON comment.idUser = users.idUser) WHERE approved = '0';";
+$result = $strcon->query($sql)
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -18,7 +23,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
     <script src="swiper.js"></script>
-    <title>Pesquisar</title>
+    <title>Lista de usuarios</title>
     <link rel="shortcut icon" href="logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -123,50 +128,47 @@
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
                             <tr>
                                 <th scope="col" class="py-3 px-6">
-                                    Titulo
+                                    Usuario
                                 </th>
                                 <th scope="col" class="py-3 px-6">
-                                    Acervo
+                                    Comentario
                                 </th>
                                 <th scope="col" class="py-3 px-6">
-                                    Editora
+                                    Obra
                                 </th>
                                 <th scope="col" class="py-3 px-6">
-                                    Autor
-                                </th>
-                                <th scope="col" class="py-3 px-6">
-                                    Editora
-                                </th>
-                                <th scope="col" class="py-3 px-6">
-                                    Disponibilidade
+                                    Aprovar
                                 </th>
 
+                                <th scope="col" class="py-3 px-6">
+                                    Deletar
+                                </th>
                             </tr>
                         </thead>
 
                         <tbody>
                             <?php
-                            while ($result = mysqli_fetch_assoc($sql_search)) {
+                            while ($user_data = mysqli_fetch_assoc($result)) {
                                 echo ('<tr class="bg-white border-b  ">' .
                                     '<th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap flex ">' .
-                                    '<span class="my-auto"> ' . $result['title'] . '</span>' . '<img src="' . $result['cover'] . '" class=" ml-2 w-20 ">' .
+                                    '<span class="my-auto"> ' . $user_data['nameUser'] . " " . $user_data['lastname'] . '</span>' .
                                     '</th>' .
                                     '<td class="py-4 px-6">' .
-                                    $result['idCollection'] .
+                                    $user_data['title'] .
                                     '</td>' .
-                                    '.<td class="py-4 px-6">'
-                                    . $result['publishCompany'] .
-                                    '</td>'
-                                    . '<td class="py-4 px-6">'
-                                    . $result['author']
-                                    . '</td>' .
-                                    '<td class="py-4 px-6">'
-                                    . $result['publishCompany']
-                                    . '</td>' .
-                                    '<td class="py-4 px-6">'
-                                    . $result['disponibility']
-                                    . '</td>'.
-                                     
+                                    '.<td class="py-4 px-6 break-words">'
+                                    . $user_data['comment'] .
+                                    '<td class="py-4 px-4">' .
+                                    '<a href="../php/approve.php?id=' . $user_data['idComment'] . '"
+                                        class=" flex  rounded-lg  text-center  hover:bg-green-600 hover:text-white duration-200 ease-in-out font-medium text-green-600 hover:underline  "><svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-6 w-6 " fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                      </svg></a>' .
+                                    '</td>' . 
+                                    '<td class="py-4 px-4">' .
+                                    '<a href="../php/deletecomment.php?id=' . $user_data['idComment'] . '"
+                                        class=" flex  rounded-lg  text-center  hover:bg-red-600 hover:text-white duration-200 ease-in-out font-medium text-red-600 hover:underline  "><svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-6 w-6" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256"><path fill="currentColor" d="M216 48h-40v-8a24.1 24.1 0 0 0-24-24h-48a24.1 24.1 0 0 0-24 24v8H40a8 8 0 0 0 0 16h8v144a16 16 0 0 0 16 16h128a16 16 0 0 0 16-16V64h8a8 8 0 0 0 0-16ZM96 40a8 8 0 0 1 8-8h48a8 8 0 0 1 8 8v8H96Zm96 168H64V64h128Zm-80-104v64a8 8 0 0 1-16 0v-64a8 8 0 0 1 16 0Zm48 0v64a8 8 0 0 1-16 0v-64a8 8 0 0 1 16 0Z"/></svg> </a>' .
+                                    '</td>'.
                                     '</tr>"');
                             }
                             ?>
