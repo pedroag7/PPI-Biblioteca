@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
     $isbn = $_POST['isbn'];
     //$path_cover = $_FILES["imagem"]["cover"];
     $descphysic = $_POST['descphysic'];
-    $disponibility = $_POST['disponibility'];
+    $disponibility = $_POST['disponi'];
     $synopses = $_POST['synopses'];
 
         // Handle Cover by tobias

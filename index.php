@@ -108,18 +108,39 @@ require_once("./php/protect.php");
     <!--Main-->
     <div class="p-3  pt-5 max-w-screen-xl mx-auto text-gray-500">
 
-      <h1 class="md:text-xl text-left md:pl-24 pl-16 text-xl text-green-500  "> Bem vindo <strong><?php echo $_SESSION['name']; ?></strong> , tenha um ótimo dia!</h1>
-      <p class=" text-left md:pl-24 pl-16 md:text-2xl text-xl italic font-bold ">Ficçao cientifica:</p>
-      
-
-      <br>
-
+      <h1 class="md:text-xl text-left md:pl-24 ml-2 text-xl text-green-500  "> Bem vindo <strong><?php echo $_SESSION['name']; ?></strong> , tenha um ótimo dia!</h1>
+      <p class=" text-left md:pl-24 pl-16 md:text-2xl pb-2 text-xl italic font-bold ">Ficçao cientifica:</p>
+    
       <!-- Swiper -->
 
       <div class=" swiper mySwiper">
         <div class="swiper-wrapper">
           <?php
-          $sql = "SELECT * FROM obra ORDER BY title DESC limit 9";
+          $sql = "SELECT * FROM obra WHERE category = 'Ficçao' ORDER BY title DESC LIMIT 18";
+          $result = $strcon->query($sql);
+
+          if ($result->num_rows > 0) {
+
+            while ($obra_data = mysqli_fetch_assoc($result)) {
+              $idObra = $obra_data['idObra'];
+              $capa = $obra_data['cover'];
+
+              echo "<div class=\"swiper-slide\"> <a href=\"./livro/index.php?id=$idObra\"><img src=\"ppi-biblioteca/$capa\" class=\"w-32 h-24 rounded-lg object-cover \"></a></div>";
+            }
+          }
+          ?>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <h1 class=" text-left pt-4 md:pl-24 pl-16 pb-2 md:text-2xl text-xl italic font-bold ">Fantasia:</h1>
+
+      <div class=" swiper mySwiper">
+        <div class="swiper-wrapper">
+          <?php
+          $sql = "SELECT * FROM obra WHERE category = 'Fantasia' ORDER BY title DESC LIMIT 18";
           $result = $strcon->query($sql);
 
           if ($result->num_rows > 0) {
@@ -132,8 +153,6 @@ require_once("./php/protect.php");
             }
           }
           ?>
-
-          
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
