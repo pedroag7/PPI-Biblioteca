@@ -4,7 +4,7 @@
         
         include_once('../php/conexao.php');
         $email = mysqli_real_escape_string($strcon,$_POST['email']);
-        $password = mysqli_real_escape_string($strcon,$_POST['password']);
+        $password = mysqli_real_escape_string($strcon,md5($_POST['password']));
 
         $sql = "SELECT * FROM users WHERE email = '$email' and senha = '$password'";
         $result = $strcon->query($sql);

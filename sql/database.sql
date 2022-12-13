@@ -48,7 +48,7 @@ CREATE TABLE comment(
     comment VARCHAR(600) NOT NULL,
     idUser INT NOT NULL,
     idObra INT NOT NULL,
-    aprroved BOOLEAN DEFAULT 'false',
+    approved BOOLEAN DEFAULT '0',
     PRIMARY KEY(idComment),
     FOREIGN KEY (idUser) REFERENCES users(idUser),
     FOREIGN KEY (idObra) REFERENCES obra(idObra)
